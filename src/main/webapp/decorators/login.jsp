@@ -11,7 +11,7 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	
-	<title>Đăng nhập</title>
+	<title>JWAT</title>
 	<link rel="shortcut icon" type="image/x-icon" href="<c:url value='/assets/img/logo.png'/>" />
 	<!-- Custom fonts for this template-->
 	<link href="<c:url value='/assets/vendor/fontawesome-free/css/all.min.css'/>" rel="stylesheet"

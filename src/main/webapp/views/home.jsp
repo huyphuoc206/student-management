@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Home Page</title>
+<title>JWAT</title>
 </head>
 <body>
 	<h1>Hello World</h1>
