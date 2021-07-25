@@ -4,3 +4,7 @@
 	background: linear-gradient(to right, #1CB5E0, #000046);
 	background-size: cover;
 }
+
+.alert .close {
+	font-size: 1.2rem !important;
+}

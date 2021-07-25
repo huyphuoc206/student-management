@@ -23,14 +23,15 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h5 font-weight-bold mb-4 text-primary">HỆ THỐNG QUẢN LÝ HỌC SINH</h1>
+                                        <h1 class="h5 font-weight-bold mb-4 text-primary">HỆ THỐNG QUẢN LÝ SINH VIÊN</h1>
                                		</div>
                                     <div class="text-center">
                                         <h1 class="h5 text-gray-900 mb-4">Đăng nhập</h1>
                                     </div>
-                      		       <!-- 	<div class="alert alert-danger text-center small">
-									  Tên tài khoản hoặc mật khẩu không chính xác.
-									</div> -->
+                      		      <!--  	<div class="alert alert-danger text-center small">
+									  <span>Tên tài khoản hoặc mật khẩu không chính xác.</span>
+									  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+									</div>  -->
                                     <form class="user">
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
