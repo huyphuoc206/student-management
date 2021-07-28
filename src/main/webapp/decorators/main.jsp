@@ -22,6 +22,7 @@
 	<!-- Custom styles for this template-->
 	<link href="<c:url value='/assets/css/sb-admin-2.min.css'/>" rel="stylesheet">
 	<link href="<c:url value='/assets/css/style.css'/>" rel="stylesheet">
+	<link href="<c:url value='/assets/vendor/datatables/dataTables.bootstrap4.min.css'/>" rel="stylesheet">
 </head>
 <body id="page-top">
 	<div id="wrapper">
