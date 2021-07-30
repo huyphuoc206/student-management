@@ -22,6 +22,7 @@ public class UserMapper implements IRowMapper<UserDTO> {
 			user.setDob(resultSet.getTimestamp("dob").toLocalDateTime().toLocalDate());
 			user.setPhoneNumber(resultSet.getString("phone_number"));
 			user.setStatus(resultSet.getInt("status"));
+			user.setCreatedDate(resultSet.getTimestamp("created_date").toLocalDateTime());
 			RoleDTO role = new RoleDTO();
 			role.setId(resultSet.getLong("role_id"));
 			if (MapperUtil.hasColumn(resultSet, "code"))
@@ -29,7 +30,6 @@ public class UserMapper implements IRowMapper<UserDTO> {
 			if (MapperUtil.hasColumn(resultSet, "name"))
 				role.setName(resultSet.getString("name"));
 			user.setRole(role);
-			user.setCreatedDate(resultSet.getTimestamp("created_date").toLocalDateTime());
 
 			return user;
 		} catch (SQLException throwables) {

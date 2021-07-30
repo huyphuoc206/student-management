@@ -61,17 +61,10 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<div class="row align-items-center">
-				<div class="col-6">
+				<div class="col-12">
 					<h6 class="m-0 font-weight-bold text-primary">
 						<i class="fa fa-list-alt mr-2"></i>Danh sách lớp
 					</h6>
-				</div>
-				<div class="col-6 text-right">
-					<button class="btn btn-danger btn-icon-split" data-toggle="modal"
-						data-target="#removeModal">
-						<span class="icon text-white-50"> <i class="fas fa-trash"></i>
-						</span> <span class="text">Xóa</span>
-					</button>
 				</div>
 			</div>
 		</div>
@@ -91,10 +84,6 @@
 					id="dataTable" width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="selectAll"> <label
-									for="selectAll"></label>
-							</span></th>
 							<th class="text-center">Tên lớp</th>
 							<th class="text-center">Mã lớp</th>
 							<th class="text-center">Khóa</th>
@@ -104,69 +93,43 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
 							<td>Director</td>
 							<td>New York</td>
 							<td>Director</td>
 							<td>Director</td>
-							<td class="text-center"><a href="class-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="student-in-class.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Danh sách sinh viên"> <i class="fas fa-list"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="class-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="student-in-class.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Danh sách sinh viên"> <i class="fas fa-list"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="class-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="student-in-class.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Danh sách sinh viên"> <i class="fas fa-list"></i></a></td>
-						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="class-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="student-in-class.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Danh sách sinh viên"> <i class="fas fa-list"></i></a></td>
+							<td class="text-center">
+								<a href="admin-edit.html"
+								class="btn btn-info btn-circle btn-sm m-1" title="Cập nhật"> <i
+									class="fas fa-pen"></i></a>
+								<button data-toggle="modal" data-target="#removeModal"
+								class="btn btn-danger btn-circle btn-sm m-1" title="Xóa"> <i
+									class="fas fa-trash"></i></button>
+								<a href="student-in-class.html"
+							class="btn btn-success btn-circle btn-sm m-1"
+							title="Danh sách sinh viên"> <i class="fas fa-list"></i></a></td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Xóa lớp</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Bạn chắc chắn muốn xóa lớp này?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Hủy</button>
+					<button id="remove" class="btn btn-danger">Xóa</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

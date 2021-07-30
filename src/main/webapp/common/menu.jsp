@@ -65,7 +65,7 @@
 				</div>
 			</div></li>
 
-		<li class="nav-item"><a class="nav-link" href="faculty.html">
+		<li class="nav-item"><a class="nav-link" href="<c:url value='/quan-tri/khoa'/>">
 				<i class="fas fa-fw fa-building"></i> <span>Quản lý khoa</span>
 		</a></li>
 		<li class="nav-item"><a class="nav-link" href="department.html">
