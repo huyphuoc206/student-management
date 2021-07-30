@@ -42,9 +42,19 @@
                     <!-- 404 Error Text -->
                     <div class="text-center">
                         <div class="error mx-auto" data-text="404">404</div>
-                        <p class="lead text-gray-800 mb-5">Page Not Found</p>
-                        <p class="text-gray-500 mb-0">It looks like you found a glitch in the matrix...</p>
-                        <a href="index.html">&larr; Back to Dashboard</a>
+                        <p class="lead text-gray-800 mb-5">Không tìm thấy trang</p>
+                        <c:if test="${USER.role.code == 'STUDENT'}">
+                        	<a href="<c:url value='/sinh-vien'/>">&larr; Quay lại trang chủ</a>
+                        </c:if>
+                         <c:if test="${USER.role.code == 'ADMIN'}">
+                        	<a href="<c:url value='/quan-tri'/>">&larr; Quay lại trang chủ</a>
+                        </c:if>
+                         <c:if test="${USER.role.code == 'LECTURER'}">
+                        	<a href="<c:url value='/giang-vien'/>">&larr; Quay lại trang chủ</a>
+                        </c:if>
+                        <c:if test="${empty USER}">
+                        	<a href="<c:url value='/dang-nhap'/>">&larr; Quay lại trang đăng nhập</a>
+                        </c:if>
                     </div>
 
                 </div>

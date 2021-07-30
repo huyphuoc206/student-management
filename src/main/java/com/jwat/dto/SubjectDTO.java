@@ -34,4 +34,7 @@ public class SubjectDTO {
 		this.department = department;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

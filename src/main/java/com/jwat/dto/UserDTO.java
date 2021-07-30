@@ -100,4 +100,16 @@ public class UserDTO {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	@Override
+	public String toString() {
+		return "UserDTO [id=" + id + ", username=" + username + ", password=" + password + ", email=" + email
+				+ ", fullname=" + fullname + ", dob=" + dob + ", gender=" + gender + ", phoneNumber=" + phoneNumber
+				+ ", status=" + status + ", createdDate=" + createdDate + ", role=" + role + "]";
+	}
+		
+	
 }
