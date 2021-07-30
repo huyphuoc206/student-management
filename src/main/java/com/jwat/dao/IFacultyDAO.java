@@ -1,18 +1,18 @@
-package com.jwat.service;
+package com.jwat.dao;
 
 import java.util.List;
 
 import com.jwat.dto.FacultyDTO;
 
-public interface IFacultyService {
+public interface IFacultyDAO {
 
 	List<FacultyDTO> findAll();
 
 	FacultyDTO findOneById(long id);
 
-	FacultyDTO insert(FacultyDTO facultyDTO);
+	Long insert(FacultyDTO facultyDTO);
 
 	boolean delete(Long id);
 
-	FacultyDTO update(FacultyDTO facultyDTO);
+	boolean update(FacultyDTO facultyDTO);
 }

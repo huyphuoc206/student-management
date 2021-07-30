@@ -65,17 +65,10 @@
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<div class="row align-items-center">
-				<div class="col-6">
+				<div class="col-12">
 					<h6 class="m-0 font-weight-bold text-primary">
 						<i class="fa fa-list-alt mr-2"></i>Danh sách môn học
 					</h6>
-				</div>
-				<div class="col-6 text-right">
-					<button class="btn btn-danger btn-icon-split" data-toggle="modal"
-						data-target="#removeModal">
-						<span class="icon text-white-50"> <i class="fas fa-trash"></i>
-						</span> <span class="text">Xóa</span>
-					</button>
 				</div>
 			</div>
 		</div>
@@ -99,10 +92,6 @@
 					width="100%" cellspacing="0">
 					<thead>
 						<tr>
-							<th class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="selectAll"> <label
-									for="selectAll"></label>
-							</span></th>
 							<th class="text-center">Tên môn học</th>
 							<th class="text-center">Mã môn học</th>
 							<th class="text-center">Bộ môn</th>
@@ -112,70 +101,22 @@
 					</thead>
 					<tbody>
 						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
 							<td>Director</td>
 							<td>New York</td>
 							<td>Director</td>
 							<td>Director</td>
-							<td class="text-center"><a href="subject-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="subject-assign.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Giao môn học cho giảng viên"> <i class="fas fa-user"></i></a>
+							<td class="text-center">
+								<a href="admin-edit.html"
+								class="btn btn-info btn-circle btn-sm m-1" title="Cập nhật"> <i
+									class="fas fa-pen"></i></a>
+								<button data-toggle="modal" data-target="#removeModal"
+								class="btn btn-danger btn-circle btn-sm m-1" title="Xóa"> <i
+									class="fas fa-trash"></i></button>
+								<a href="subject-assign.html"
+							class="btn btn-success btn-circle btn-sm m-1"
+							title="Giao môn học cho giảng viên"> <i class="fas fa-user"></i></a>
 							</td>
 						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="subject-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="subject-assign.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Giao môn học cho giảng viên"> <i class="fas fa-user"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="subject-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="subject-assign.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Giao môn học cho giảng viên"> <i class="fas fa-user"></i></a>
-							</td>
-						</tr>
-						<tr>
-							<td class="text-center"><span class="custom-checkbox">
-									<input type="checkbox" id="checkbox1" name="options[]"
-									value="1"> <label for="checkbox1"></label>
-							</span></td>
-							<td>Director</td>
-							<td>New York</td>
-							<td>Director</td>
-							<td>Director</td>
-							<td class="text-center"><a href="subject-edit.html"
-								class="btn btn-info btn-circle btn-sm" title="Cập nhật"> <i
-									class="fas fa-pen"></i></a> <a href="subject-assign.html"
-								class="btn btn-success btn-circle btn-sm"
-								title="Giao môn học cho giảng viên"> <i class="fas fa-user"></i></a>
-							</td>
-						</tr>
-
 					</tbody>
 				</table>
 			</div>
