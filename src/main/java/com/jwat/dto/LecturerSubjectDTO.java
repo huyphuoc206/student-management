@@ -30,6 +30,10 @@ public class LecturerSubjectDTO {
 		this.semester = semester;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public Long getId() {
 		return id;
 	}

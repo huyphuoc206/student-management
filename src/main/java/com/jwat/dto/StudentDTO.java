@@ -24,4 +24,8 @@ public class StudentDTO {
 	public void setClassDTO(ClassDTO classDTO) {
 		this.classDTO = classDTO;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 }

@@ -27,6 +27,10 @@ public class DepartmentDTO {
 		return id;
 	}
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	public LecturerDTO getLecturer() {
 		return lecturer;
 	}
