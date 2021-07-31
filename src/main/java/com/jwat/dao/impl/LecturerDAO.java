@@ -17,4 +17,13 @@ public class LecturerDAO extends AbstractDAO<LecturerDTO> implements ILecturerDA
 		return query(sql.toString(), new LecturerMapper(), id);
 	}
 
+	@Override
+	public List<LecturerDTO> findByDepartmentId(long id) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT L.id, CONCAT(DE.code, ' ', U.fullname) AS 'HV_GV' ");
+		sql.append("FROM user U, lecturer L, department D, degree DE ");
+		sql.append("WHERE U.id = L.user_id AND L.degree_id = DE.id AND L.department_id = D.id AND L.department_id = ?");
+		return query(sql.toString(), new LecturerMapper(), id);
+	}
+
 }

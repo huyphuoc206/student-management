@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-faculty" />
-<c:url var="FacultyURL" value="/quan-tri/khoa" />
+<c:url var="MainURL" value="/quan-tri/khoa" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +11,13 @@
 </head>
 <body>
 	<div class="row justify-content-between">
-		<a href="<c:url value='/quan-tri/khoa'/>"
-			class="btn btn-info btn-icon-split mb-3" id="preLink"> <span
-			class="icon text-white-50"> <i class="fa fa-arrow-left"></i>
-		</span> <span class="text">Quay lại</span>
-		</a>
+		<div>
+			<a href="<c:url value='/quan-tri/khoa'/>"
+				class="btn btn-info btn-icon-split mb-3" id="preLink"> <span
+				class="icon text-white-50"> <i class="fa fa-arrow-left"></i>
+			</span> <span class="text">Quay lại</span>
+			</a>
+		</div>
 		<c:if test="${not empty message}">
 			<div class="alert alert-${alert} text-center small">
 				<span>${message} </span> <a href="#" class="close"
@@ -93,13 +95,13 @@
 	        success: function (result) {
 	            $('.load').hide();
 	            if(result !== null)
-	                window.location.href = "${FacultyURL}?id="+result.id+"&message=update_success&alert=success";
+	                window.location.href = "${MainURL}?id="+result.id+"&message=update_success&alert=success";
 	            else
-	                window.location.href = "${FacultyURL}?id="+data.id+"&message=update_fail&alert=danger";
+	                window.location.href = "${MainURL}?id="+data.id+"&message=update_fail&alert=danger";
 	        },
 	        error: function (error) {
 	            $('.load').hide();
-	            window.location.href = "${FacultyURL}?message=system_error&alert=danger";
+	            window.location.href = "${MainURL}?message=system_error&alert=danger";
 	        }
 	    })
 	}

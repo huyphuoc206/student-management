@@ -18,4 +18,9 @@ public class LecturerService implements ILecturerService {
 		return lecturerDao.findByFacultyId(id);
 	}
 
+	@Override
+	public List<LecturerDTO> findByDepartmentId(long id) {
+		return lecturerDao.findByDepartmentId(id);
+	}
+
 }

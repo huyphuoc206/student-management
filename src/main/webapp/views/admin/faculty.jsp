@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-faculty" />
-<c:url var="FacultyURL" value="/quan-tri/khoa" />
+<c:url var="MainURL" value="/quan-tri/khoa" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,12 +10,15 @@
 <title>JWAt</title>
 </head>
 <body>
-	<c:if test="${not empty message}">
-		<div class="alert alert-${alert} text-center small">
-			<span>${message}</span> <a href="#" class="close"
-				data-dismiss="alert" aria-label="close">&times;</a>
-		</div>
-	</c:if>
+	<div class="row justify-content-end">
+		<c:if test="${not empty message}">
+			<div class="alert alert-${alert} text-center small">
+				<span>${message}</span> <a href="#" class="close"
+					data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</c:if>
+	</div>
+
 	<div class="card shadow mb-4">
 		<a href="#collapseCardExample" class="d-block card-header py-3"
 			data-toggle="collapse" role="button" aria-expanded="true"
@@ -30,13 +33,15 @@
 					<div class="form-group row justify-content-center">
 						<label for="name" class="col-sm-2 col-form-label">Tên khoa</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="name" name="name" required>
+							<input type="text" class="form-control" id="name" name="name"
+								required>
 						</div>
 					</div>
 					<div class="form-group row justify-content-center">
 						<label for="code" class="col-sm-2 col-form-label">Mã khoa</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="code" name="code" required>
+							<input type="text" class="form-control" id="code" name="code"
+								required>
 						</div>
 					</div>
 					<div class="form-group row justify-content-center mt-4">
@@ -144,13 +149,13 @@
 				success : function(result) {
 					$('.load').hide();
 					if (result !== null)
-						window.location.href = "${FacultyURL}?message=insert_success&alert=success";
+						window.location.href = "${MainURL}?message=insert_success&alert=success";
 					else
-						window.location.href = "${FacultyURL}?message=insert_fail&alert=danger";
+						window.location.href = "${MainURL}?message=insert_fail&alert=danger";
 				},
 				error : function(error) {
 					$('.load').hide();
-					window.location.href = "${FacultyURL}?message=system_error&alert=danger";
+					window.location.href = "${MainURL}?message=system_error&alert=danger";
 				}
 			})
 		}
@@ -179,13 +184,13 @@
 	            success: function (result) {
 	                $('.load').hide();
 	                if (result)
-	                    window.location.href = "${FacultyURL}?message=delete_success&alert=success";
+	                    window.location.href = "${MainURL}?message=delete_success&alert=success";
 	                else
-	                    window.location.href = "${FacultyURL}?message=delete_fail&alert=danger";
+	                    window.location.href = "${MainURL}?message=delete_fail&alert=danger";
 	            },
 	            error: function (error) {
 	                $('.load').hide();
-	                window.location.href = "${FacultyURL}?message=system_error&alert=danger";
+	                window.location.href = "${MainURL}?message=system_error&alert=danger";
 	            }
 	        })
 	    }
