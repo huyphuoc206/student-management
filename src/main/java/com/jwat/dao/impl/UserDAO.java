@@ -14,4 +14,31 @@ public class UserDAO extends AbstractDAO<UserDTO> implements IUserDAO {
 		List<UserDTO> users = query(sql, new UserMapper(), username, password, status);
 		return users.isEmpty() ? null : users.get(0);
 	}
+
+	@Override
+	public UserDTO findOneById(Long id) {
+		String sql = "SELECT * FROM user WHERE id = ?";
+		List<UserDTO> users = query(sql, new UserMapper(), id);
+		return users.isEmpty() ? null : users.get(0);
+	}
+
+	@Override
+	public UserDTO findOneByEmail(String email) {
+		String sql = "SELECT * FROM user WHERE email = ?";
+		List<UserDTO> users = query(sql, new UserMapper(), email);
+		return users.isEmpty() ? null : users.get(0);
+	}
+
+	@Override
+	public boolean update(UserDTO userDTO) {
+		String sql = "UPDATE user SET fullname = ?, email = ?, gender = ?, phone_number = ?, dob = ?  WHERE id = ?";
+		return update(sql, userDTO.getFullname(), userDTO.getEmail(), userDTO.getGender(), userDTO.getPhoneNumber(),
+				userDTO.getDob(), userDTO.getId());
+	}
+
+	@Override
+	public boolean changePassword(String newPassword, Long userId) {
+		String sql = "UPDATE user SET password = ? WHERE id = ?";
+		return update(sql, newPassword, userId);
+	}
 }

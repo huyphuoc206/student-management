@@ -43,11 +43,11 @@ public class DepartmentController extends HttpServlet {
 			List<LecturerDTO> lecturers = lecturerService.findByDepartmentId(Long.parseLong(id));
 			request.setAttribute("lecturers", lecturers);
 			request.setAttribute(SystemConstant.MODEL, department);
-			url = "../views/admin/department-edit.jsp";
+			url = "/views/admin/department-edit.jsp";
 		} else {
 			List<DepartmentDTO> departments = departmentService.findAll();
 			request.setAttribute(SystemConstant.MODEL, departments);
-			url = "../views/admin/department.jsp";
+			url = "/views/admin/department.jsp";
 		}
 		List<FacultyDTO> faculties = facultyService.findAll();
 		request.setAttribute("faculties", faculties);

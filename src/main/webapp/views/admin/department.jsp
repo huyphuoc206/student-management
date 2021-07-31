@@ -153,6 +153,13 @@
 		</div>
 	</div>
 	<script>
+		const items = $(".nav-item")
+		for (let element of items) {
+			if(element.innerHTML.includes('Quản lý bộ môn'))
+				element.classList.add("active")
+			else 
+				element.classList.remove("active")
+		}
 		$('#add').click(function(e) {
 			if($('#formSubmit')[0].checkValidity()) {
 				e.preventDefault();
