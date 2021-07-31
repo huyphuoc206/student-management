@@ -7,5 +7,7 @@ import com.jwat.dto.LecturerDTO;
 public interface ILecturerService {
 
 	List<LecturerDTO> findByFacultyId(long id);
+
+	List<LecturerDTO> findByDepartmentId(long id);
 	
 }

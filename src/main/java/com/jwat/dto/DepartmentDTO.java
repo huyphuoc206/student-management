@@ -4,8 +4,10 @@ public class DepartmentDTO {
 	private Long id;
 	private String name;
 	private String code;
-	private LecturerDTO lecturer;
-	private FacultyDTO faculty;
+	private Long facultyId;
+	private String facultyName;
+	private Long lecturerId;
+	private String lecturerName;
 
 	public String getName() {
 		return name;
@@ -31,20 +33,43 @@ public class DepartmentDTO {
 		this.id = id;
 	}
 
-	public LecturerDTO getLecturer() {
-		return lecturer;
+	public Long getFacultyId() {
+		return facultyId;
 	}
 
-	public void setLecturer(LecturerDTO lecturer) {
-		this.lecturer = lecturer;
+	public void setFacultyId(Long facultyId) {
+		this.facultyId = facultyId;
 	}
 
-	public FacultyDTO getFaculty() {
-		return faculty;
+	public String getFacultyName() {
+		return facultyName;
 	}
 
-	public void setFaculty(FacultyDTO faculty) {
-		this.faculty = faculty;
+	public void setFacultyName(String facultyName) {
+		this.facultyName = facultyName;
 	}
 
+	public Long getLecturerId() {
+		return lecturerId;
+	}
+
+	public void setLecturerId(Long lecturerId) {
+		this.lecturerId = lecturerId;
+	}
+
+	public String getLecturerName() {
+		return lecturerName;
+	}
+
+	public void setLecturerName(String lecturerName) {
+		this.lecturerName = lecturerName;
+	}
+
+	@Override
+	public String toString() {
+		return "DepartmentDTO [id=" + id + ", name=" + name + ", code=" + code + ", facultyId=" + facultyId
+				+ ", facultyName=" + facultyName + ", lecturerId=" + lecturerId + ", lecturerName=" + lecturerName
+				+ "]";
+	}
+	
 }
