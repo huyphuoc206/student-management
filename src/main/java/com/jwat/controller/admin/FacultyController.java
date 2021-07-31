@@ -39,11 +39,11 @@ public class FacultyController extends HttpServlet {
 			List<LecturerDTO> lecturers = lecturerService.findByFacultyId(Long.parseLong(id));
 			request.setAttribute("lecturers", lecturers);
 			request.setAttribute(SystemConstant.MODEL, faculty);
-			url = "../views/admin/faculty-edit.jsp";
+			url = "/views/admin/faculty-edit.jsp";
 		} else {
 			List<FacultyDTO> faculties = facultyService.findAll();
 			request.setAttribute(SystemConstant.MODEL, faculties);
-			url = "../views/admin/faculty.jsp";
+			url = "/views/admin/faculty.jsp";
 		}
 		RequestDispatcher rd = request.getRequestDispatcher(url);
 		rd.forward(request, response);

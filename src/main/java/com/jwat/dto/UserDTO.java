@@ -1,7 +1,6 @@
 package com.jwat.dto;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Timestamp;
 
 public class UserDTO {
 	private Long id;
@@ -9,11 +8,11 @@ public class UserDTO {
 	private String password;
 	private String email;
 	private String fullname;
-	private LocalDate dob;
+	private Timestamp dob;
 	private String gender;
 	private String phoneNumber;
 	private int status;
-	private LocalDateTime createdDate;
+	private Timestamp createdDate;
 	private RoleDTO role;
 
 	public String getUsername() {
@@ -48,11 +47,11 @@ public class UserDTO {
 		this.fullname = fullname;
 	}
 
-	public LocalDate getDob() {
+	public Timestamp getDob() {
 		return dob;
 	}
 
-	public void setDob(LocalDate dob) {
+	public void setDob(Timestamp dob) {
 		this.dob = dob;
 	}
 
@@ -80,11 +79,11 @@ public class UserDTO {
 		this.status = status;
 	}
 
-	public LocalDateTime getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(LocalDateTime createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
 

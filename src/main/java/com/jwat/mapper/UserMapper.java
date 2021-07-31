@@ -19,10 +19,10 @@ public class UserMapper implements IRowMapper<UserDTO> {
 			user.setFullname(resultSet.getString("fullname"));
 			user.setEmail(resultSet.getString("email"));
 			user.setGender(resultSet.getString("gender"));
-			user.setDob(resultSet.getTimestamp("dob").toLocalDateTime().toLocalDate());
+			user.setDob(resultSet.getTimestamp("dob"));
 			user.setPhoneNumber(resultSet.getString("phone_number"));
 			user.setStatus(resultSet.getInt("status"));
-			user.setCreatedDate(resultSet.getTimestamp("created_date").toLocalDateTime());
+			user.setCreatedDate(resultSet.getTimestamp("created_date"));
 			RoleDTO role = new RoleDTO();
 			role.setId(resultSet.getLong("role_id"));
 			if (MapperUtil.hasColumn(resultSet, "code"))
