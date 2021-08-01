@@ -32,16 +32,6 @@
 			</div>
 		</div>
 		<div class="form-row">
-			<div class="form-group col-md-6">
-				<label for="">Mật khẩu</label> <input type="password"
-					class="form-control" id="">
-			</div>
-			<div class="form-group col-md-6">
-				<label for="">Nhập lại mật khẩu</label> <input type="password"
-					class="form-control" id="">
-			</div>
-		</div>
-		<div class="form-row">
 			<div class="form-group col-md-4">
 				<label for="inputEmail4">Số điện thoại</label> <input type="tel"
 					class="form-control" id="inputEmail4">
@@ -97,5 +87,9 @@
 			</button>
 		</div>
 	</form>
+	 <script>
+		$("#collapseTwo")[0].classList.add("show")
+		$("#collapseTwo .collapse-item")[0].classList.add("active")
+	</script>
 </body>
 </html>

@@ -4,6 +4,7 @@ public class StudentDTO {
 	private Long id;
 	private UserDTO user;
 	private ClassDTO classDTO;
+	private Long classId;
 
 	public UserDTO getUser() {
 		return user;
@@ -28,4 +29,14 @@ public class StudentDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public Long getClassId() {
+		return classId;
+	}
+
+	public void setClassId(Long classId) {
+		this.classId = classId;
+	}
+	
+	
 }

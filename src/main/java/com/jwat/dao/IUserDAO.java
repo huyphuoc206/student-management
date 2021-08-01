@@ -14,4 +14,6 @@ public interface IUserDAO {
 
 	boolean changePassword(String newPassword, Long userId);
 
+	boolean delete(Long id);
+
 }

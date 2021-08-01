@@ -26,4 +26,16 @@ public class LecturerDAO extends AbstractDAO<LecturerDTO> implements ILecturerDA
 		return query(sql.toString(), new LecturerMapper(), id);
 	}
 
+	@Override
+	public List<LecturerDTO> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LecturerDTO findOneById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

@@ -41,4 +41,10 @@ public class UserDAO extends AbstractDAO<UserDTO> implements IUserDAO {
 		String sql = "UPDATE user SET password = ? WHERE id = ?";
 		return update(sql, newPassword, userId);
 	}
+
+	@Override
+	public boolean delete(Long id) {
+		String sql = "UPDATE user SET status = 0 WHERE id = ?";
+		return update(sql, id);
+	}
 }

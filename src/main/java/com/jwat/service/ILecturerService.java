@@ -10,4 +10,8 @@ public interface ILecturerService {
 
 	List<LecturerDTO> findByDepartmentId(long id);
 	
+	List<LecturerDTO> findAll();
+	
+	LecturerDTO findOneById(long id);
+	
 }

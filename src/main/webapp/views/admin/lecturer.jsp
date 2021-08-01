@@ -152,6 +152,9 @@
 								<div class="btn-success btn-circle btn-sm" title="Hoạt động">
 									<i class="fas fa-check"></i>
 								</div>
+								<div class="btn-danger btn-circle btn-sm" title="Ngưng hoạt động">
+									<i class="fas fa-ban"></i>
+								</div>
 							</td>
 							<td class="text-center">
 								<a href="admin-edit.html"
@@ -185,5 +188,9 @@
             </div>
         </div>
     </div>
+     <script>
+		$("#collapseTwo")[0].classList.add("show")
+		$("#collapseTwo .collapse-item")[0].classList.add("active")
+	</script>
 </body>
 </html>

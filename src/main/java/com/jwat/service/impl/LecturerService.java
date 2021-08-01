@@ -23,4 +23,16 @@ public class LecturerService implements ILecturerService {
 		return lecturerDao.findByDepartmentId(id);
 	}
 
+	@Override
+	public List<LecturerDTO> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public LecturerDTO findOneById(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

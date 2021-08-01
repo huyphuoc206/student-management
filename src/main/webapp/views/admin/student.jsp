@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
+<c:url var="APIurl" value="/api-user" />
+<c:url var="MainURL" value="/quan-tri/sinh-vien" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +10,14 @@
 <title>JWAt</title>
 </head>
 <body>
+	<div class="row justify-content-end">
+		<c:if test="${not empty message}">
+			<div class="alert alert-${alert} text-center small">
+				<span>${message}</span> <a href="#" class="close"
+					data-dismiss="alert" aria-label="close">&times;</a>
+			</div>
+		</c:if>
+	</div>
 	<div class="card shadow mb-4">
 		<div class="card-header py-3">
 			<div class="row align-items-center">
@@ -24,6 +34,7 @@
 					width="100%" cellspacing="0">
 					<thead>
 						<tr>
+							<th class="text-center">STT</th>
 							<th class="text-center">MSSV</th>
 							<th class="text-center">Họ tên</th>
 							<th class="text-center">Email</th>
@@ -38,30 +49,40 @@
 						</tr>
 					</thead>
 					<tbody>
+					<c:forEach var="item" items="${model}" varStatus="loop">
 						<tr>
-							<td>Direcsdsdtor</td>
-							<td>New Yssssssssssssssssssssssssork</td>
-							<td>Yssssssssssssssssssssssssork</td>
-							<td class="text-center">1234567890</td>
-							<td class="text-center">23/02/1999</td>
-							<td class="text-center">Nam</td>
-							<td>Hệ thống thông tin</td>
-							<td>Công nghệ thông tin</td>
-							<td class="text-center">23/02/1999</td>
+							<td class="text-center">${loop.index + 1}</td>
+							<td>${item.user.username}</td>
+							<td>${item.user.fullname}</td>
+							<td>${item.user.email}</td>
+							<td class="text-center">${item.user.phoneNumber}</td>
+							<td class="text-center"><fmt:formatDate pattern = "dd-MM-yyyy" value = "${item.user.dob}" /></td>
+							<td class="text-center">${item.user.gender}</td>
+							<td>${item.classDTO.code}</td>
+							<td>${item.classDTO.facultyName}</td>
+							<td class="text-center"><fmt:formatDate pattern = "dd-MM-yyyy" value = "${item.user.createdDate}" /></td>
 							<td class="text-center">
-								<div class="btn-success btn-circle btn-sm" title="Hoạt động">
-									<i class="fas fa-check"></i>
-								</div>
+								<c:if test="${item.user.status == 1}">
+									<div class="btn-success btn-circle btn-sm" title="Hoạt động">
+										<i class="fas fa-check"></i>
+									</div>
+								</c:if>
+								<c:if test="${item.user.status == 0}">
+									<div class="btn-danger btn-circle btn-sm" title="Ngưng hoạt động">
+										<i class="fas fa-ban"></i>
+									</div>
+								</c:if>
 							</td>
 							<td class="text-center">
-								<a href="admin-edit.html"
+								<a href="<c:url value='/quan-tri/sinh-vien?id=${ item.id }'/>"
 								class="btn btn-info btn-circle btn-sm m-1" title="Cập nhật"> <i
 									class="fas fa-pen"></i></a>
 								<button data-toggle="modal" data-target="#removeModal"
-								class="btn btn-danger btn-circle btn-sm m-1" title="Xóa"> <i
-									class="fas fa-trash"></i></button>
+								class="btn btn-danger btn-circle btn-sm m-1" title="Xóa" onclick="remove(${ item.user.id })"> 
+								<i class="fas fa-trash"></i></button>
 							</td>
 						</tr>
+					</c:forEach>
 					</tbody>
 				</table>
 			</div>
@@ -85,5 +106,44 @@
             </div>
         </div>
     </div>
+    <script>
+		$("#collapseTwo")[0].classList.add("show")
+		$("#collapseTwo .collapse-item")[1].classList.add("active")
+		
+		let userId = -1;
+		function remove(id) {
+			userId = id;
+		}
+		 $('#remove').click(function (e) {
+	        e.preventDefault();
+	        let data = {}; 
+	        if (userId !== -1) {
+	            data['id'] = userId;
+	            removeStudent(data);
+	        }
+	    })
+
+	    function removeStudent(data) {
+	        $('.load').show();
+	        $.ajax({
+	            url: '${APIurl}',
+	            type: 'DELETE',
+	            contentType: 'application/json',
+	            data: JSON.stringify(data),
+	            dataType: 'json',
+	            success: function (result) {
+	                $('.load').hide();
+	                if (result)
+	                    window.location.href = "${MainURL}?message=delete_success&alert=success";
+	                else
+	                    window.location.href = "${MainURL}?message=delete_fail&alert=danger";
+	            },
+	            error: function (error) {
+	                $('.load').hide();
+	                window.location.href = "${MainURL}?message=system_error&alert=danger";
+	            }
+	        })
+	    }
+	</script>
 </body>
 </html>

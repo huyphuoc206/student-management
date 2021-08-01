@@ -128,8 +128,6 @@
 	for (let element of items) {
 		if(element.innerHTML.includes('Trang chủ'))
 			element.classList.add("active")
-		else 
-			element.classList.remove("active")
 	}
 </script>
 </body>
