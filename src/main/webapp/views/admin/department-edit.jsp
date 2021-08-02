@@ -51,10 +51,10 @@
 					<option disabled selected>Chọn giảng viên</option>
 					<c:forEach var="lecturer" items="${lecturers}">
 						<c:if test="${lecturer.id == model.lecturerId}">
-							<option value="${lecturer.id}" selected>${lecturer.user.fullname}</option>
+							<option value="${lecturer.id}" selected>${lecturer.degree.code} ${lecturer.user.fullname}</option>
 						</c:if>
 						<c:if test="${lecturer.id != model.lecturerId}">
-							<option value="${lecturer.id}">${lecturer.user.fullname}</option>
+							<option value="${lecturer.id}">${lecturer.degree.code} ${lecturer.user.fullname}</option>
 						</c:if>
 					</c:forEach>
 				</select>
@@ -89,8 +89,6 @@
 	for (let element of items) {
 		if(element.innerHTML.includes('Quản lý bộ môn'))
 			element.classList.add("active")
-		else 
-			element.classList.remove("active")
 	}
 	$('#update').click(function (e) {
 		if($('#formSubmit')[0].checkValidity()) {

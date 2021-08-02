@@ -29,12 +29,16 @@ public class DepartmentAPI extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
-		Long facultyId = Long.parseLong(request.getParameter("facultyId"));
+		String facultyIdParam = request.getParameter("facultyId");
 		List<DepartmentDTO> departments = null;
-		if (facultyId == -1)
-			departments = departmentService.findAll();
-		else
-			departments = departmentService.findByFacultyId(facultyId);
+		if (facultyIdParam != null) {
+			Long facultyId = Long.parseLong(facultyIdParam);
+			if (facultyId == -1)
+				departments = departmentService.findAll();
+			else
+				departments = departmentService.findByFacultyId(facultyId);
+		}
+
 		mapper.writeValue(response.getOutputStream(), departments);
 	}
 

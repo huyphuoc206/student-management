@@ -10,9 +10,9 @@
 <title>JWAt</title>
 </head>
 <body>
-	<div class="row justify-content-end">
+	<div class="row justify-content-end mb-5">
 		<c:if test="${not empty message}">
-			<div class="alert alert-${alert} text-center small">
+			<div class="alert alert-${alert} text-center small mb-0">
 				<span>${message}</span> <a href="#" class="close"
 					data-dismiss="alert" aria-label="close">&times;</a>
 			</div>
@@ -50,7 +50,11 @@
 							class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />" >
 					</div>
 					<div class="form-group col-md-6">
-						<label for="">Giới tính</label> <select id="" class="form-control" name="gender">
+						<label for="gender">Giới tính</label> <select id="gender" class="form-control" name="gender">
+							<c:if test="${empty model.gender}">
+								<option value="Nam">Nam</option>
+								<option value="Nữ">Nữ</option>
+							</c:if>
 							<c:if test="${model.gender == 'Nam'}">
 								<option value="Nam" selected>Nam</option>
 								<option value="Nữ">Nữ</option>

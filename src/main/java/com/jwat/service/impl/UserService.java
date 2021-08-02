@@ -47,4 +47,9 @@ public class UserService implements IUserService {
 		String newPasswordHash = MD5Hashing.hash(dto.getNewPassword());
 		return userDAO.changePassword(newPasswordHash, dto.getUserId());
 	}
+
+	@Override
+	public boolean delete(Long id) {
+		return userDAO.delete(id);
+	}
 }

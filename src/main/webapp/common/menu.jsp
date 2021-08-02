@@ -55,18 +55,20 @@
 		<li class="nav-item"><a class="nav-link"
 			href="<c:url value='/quan-tri/doi-mat-khau'/>"> <i class="fas fa-fw fa-key"></i> <span>Đổi mật khẩu</span></a></li>
 					
-		<li class="nav-item"><a class="nav-link collapsed" href="#"
+		<li class="nav-item">
+			<a class="nav-link collapsed" href="#"
 			data-toggle="collapse" data-target="#collapseTwo"
 			aria-expanded="true" aria-controls="collapseTwo"> <i
 				class="fas fa-fw fa-user"></i> <span>Quản lý người dùng</span>
-		</a>
-			<div id="collapseTwo" class="collapse show" aria-labelledby="headingTwo"
+			</a>
+			<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo"
 				data-parent="#accordionSidebar">
 				<div class="bg-white py-2 collapse-inner rounded">
-					<a class="collapse-item active" href="lecturer.html">Giảng viên</a> 
-					<a class="collapse-item" href="student.html">Sinh viên</a>
+					<a class="collapse-item" href="<c:url value='/quan-tri/giang-vien'/>">Giảng viên</a> 
+					<a class="collapse-item" href="<c:url value='/quan-tri/sinh-vien'/>">Sinh viên</a>
 				</div>
-			</div></li>
+			</div>
+		</li>
 
 		<li class="nav-item"><a class="nav-link"
 			href="<c:url value='/quan-tri/khoa'/>"> <i

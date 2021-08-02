@@ -5,8 +5,9 @@ public class ClassDTO {
 	private String name;
 	private String code;
 	private String schoolYear;
-	private FacultyDTO faculty;
-
+	private Long facultyId;
+	private String facultyName;
+	
 	public String getName() {
 		return name;
 	}
@@ -39,12 +40,23 @@ public class ClassDTO {
 		this.schoolYear = schoolYear;
 	}
 
-	public FacultyDTO getFaculty() {
-		return faculty;
+	
+	public String getFacultyName() {
+		return facultyName;
 	}
 
-	public void setFaculty(FacultyDTO faculty) {
-		this.faculty = faculty;
+	public void setFacultyName(String facultyName) {
+		this.facultyName = facultyName;
 	}
+
+	public Long getFacultyId() {
+		return facultyId;
+	}
+
+	public void setFacultyId(Long facultyId) {
+		this.facultyId = facultyId;
+	}
+	
+	
 
 }

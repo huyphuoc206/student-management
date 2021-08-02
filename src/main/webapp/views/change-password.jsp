@@ -10,9 +10,9 @@
 <title>JWAt</title>
 </head>
 <body>
-	<div class="row justify-content-end">
+	<div class="row justify-content-end mb-5">
 		<c:if test="${not empty message}">
-			<div class="alert alert-${alert} text-center small">
+			<div class="alert alert-${alert} text-center small mb-0">
 				<span>${message}</span> <a href="#" class="close"
 					data-dismiss="alert" aria-label="close">&times;</a>
 			</div>

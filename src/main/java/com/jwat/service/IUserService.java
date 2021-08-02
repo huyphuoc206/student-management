@@ -11,4 +11,6 @@ public interface IUserService {
 	UserDTO update(UserDTO userDTO);
 
 	boolean changePassword(ChangePasswordDTO dto);
+
+	boolean delete(Long id);
 }
