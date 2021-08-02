@@ -20,31 +20,29 @@ public class ClassService implements IClassService {
 
 	@Override
 	public List<ClassDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return classDAO.findAll();
 	}
 
 	@Override
 	public ClassDTO findOneById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		return classDAO.findOneById(id);
 	}
 
 	@Override
 	public ClassDTO insert(ClassDTO classDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		Long id = classDAO.insert(classDTO);
+		return classDAO.findOneById(id);
 	}
 
 	@Override
 	public boolean delete(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		return classDAO.delete(id);
 	}
 
 	@Override
 	public ClassDTO update(ClassDTO classDTO) {
-		// TODO Auto-generated method stub
+		if (classDAO.update(classDTO))
+			return classDAO.findOneById(classDTO.getId());
 		return null;
 	}
 

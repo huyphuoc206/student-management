@@ -13,4 +13,8 @@ public interface IStudentDAO {
 	Long insert(StudentDTO studentDTO);
 
 	boolean update(StudentDTO studentDTO);
+
+	List<StudentDTO> findByClassIdAndStatus(long id, int status);
+
+	StudentDTO findOneByUserId(Long id);
 }

@@ -106,7 +106,7 @@
 	        },
 	        error: function (error) {
 	            $('.load').hide();
-	            window.location.href = "${MainURL}?message=system_error&alert=danger";
+	            window.location.href = "${MainURL}?id="+data.id+"&message=system_error&alert=danger";
 	        }
 	    })
 	}

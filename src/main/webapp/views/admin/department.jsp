@@ -111,7 +111,7 @@
 							<tr>
 								<td class="text-center">${loop.index + 1}</td>
 								<td>${ item.name }</td>
-								<td>${ item.code }</td>
+								<td class="text-center">${ item.code }</td>
 								<td>${ item.lecturerName }</td>
 								<td>${ item.facultyName }</td>
 								<td class="text-center">
@@ -205,7 +205,7 @@
 		            data['id'] = departmentId;
 		            removeDepartment(data);
 		        }
-		    })
+	    })
 
 	    function removeDepartment(data) {
 	        $('.load').show();
@@ -253,6 +253,7 @@
 			   no++;
 			   const rowNode = row.node();
 			   $( rowNode ).find('td').eq(0).addClass('text-center');
+			   $( rowNode ).find('td').eq(2).addClass('text-center');
 			   $( rowNode ).find('td').eq(5).addClass('text-center');
 		   })
 	   }

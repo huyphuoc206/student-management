@@ -5,15 +5,38 @@
 	class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion"
 	id="accordionSidebar">
 	<!-- Sidebar - Brand -->
-	<a
+	<c:if test="${USER.role.code == 'STUDENT'}">
+		<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
 		href="index.html">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-laugh-wink"></i>
 		</div>
 		<div class="sidebar-brand-text mx-3">JWAT</div>
-	</a>
-
+		</a>
+	</c:if>
+	
+	<c:if test="${USER.role.code == 'LECTURER'}">
+		<a
+		class="sidebar-brand d-flex align-items-center justify-content-center"
+		href="index.html">
+		<div class="sidebar-brand-icon rotate-n-15">
+			<i class="fas fa-laugh-wink"></i>
+		</div>
+		<div class="sidebar-brand-text mx-3">JWAT</div>
+		</a>
+	</c:if>
+	
+	<c:if test="${USER.role.code == 'ADMIN'}">
+		<a
+		class="sidebar-brand d-flex align-items-center justify-content-center"
+		href="<c:url value='/quan-tri'/>">
+		<div class="sidebar-brand-icon rotate-n-15">
+			<i class="fas fa-laugh-wink"></i>
+		</div>
+		<div class="sidebar-brand-text mx-3">JWAT</div>
+		</a>
+	</c:if>
 	<!-- Divider -->
 	<hr class="sidebar-divider my-0" />
 
@@ -78,10 +101,10 @@
 			href="<c:url value='/quan-tri/bo-mon'/>"> <i
 				class="fas fa-fw fa-window-maximize"></i> <span>Quản lý bộ môn</span>
 		</a></li>
-		<li class="nav-item"><a class="nav-link" href="subject.html">
+		<li class="nav-item"><a class="nav-link" href="<c:url value='/quan-tri/mon-hoc'/>">
 				<i class="fas fa-fw fa-book"></i> <span>Quản lý môn học</span>
 		</a></li>
-		<li class="nav-item"><a class="nav-link" href="class.html"> <i
+		<li class="nav-item"><a class="nav-link" href="<c:url value='/quan-tri/lop'/>"> <i
 				class="fas fa-fw fa-address-book"></i> <span>Quản lý lớp</span></a></li>
 	</c:if>
 
