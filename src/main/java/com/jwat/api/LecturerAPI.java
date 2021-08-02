@@ -11,18 +11,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.jwat.dto.DepartmentDTO;
-import com.jwat.service.IDepartmentService;
+import com.jwat.dto.LecturerDTO;
+import com.jwat.service.ILecturerService;
 
-@WebServlet(urlPatterns = { "/api-admin-department" })
-public class DepartmentAPI extends HttpServlet {
+@WebServlet(urlPatterns = { "/api-admin-lecturer" })
+public class LecturerAPI extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private IDepartmentService departmentService;
+	private ILecturerService lecturerService;
 
-	// get departments by faculty id
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
@@ -30,48 +29,42 @@ public class DepartmentAPI extends HttpServlet {
 		request.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
 		String facultyIdParam = request.getParameter("facultyId");
-		List<DepartmentDTO> departments = null;
+		String departmentIdParam = request.getParameter("departmentId");
+		List<LecturerDTO> lecturers = null;
 		if (facultyIdParam != null) {
 			Long facultyId = Long.parseLong(facultyIdParam);
 			if (facultyId == -1)
-				departments = departmentService.findAll();
+				lecturers = lecturerService.findAll();
 			else
-				departments = departmentService.findByFacultyId(facultyId);
+				lecturers = lecturerService.findByFacultyId(facultyId);
 		}
 
-		mapper.writeValue(response.getOutputStream(), departments);
+		if (departmentIdParam != null) {
+			Long departmentId = Long.parseLong(departmentIdParam);
+			lecturers = lecturerService.findByDepartmentId(departmentId);
+		}
+		mapper.writeValue(response.getOutputStream(), lecturers);
 	}
-
+	
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
-		DepartmentDTO departmentDTO = mapper.readValue(request.getInputStream(), DepartmentDTO.class);
-		departmentDTO = departmentService.insert(departmentDTO);
-		mapper.writeValue(response.getOutputStream(), departmentDTO);
+		LecturerDTO lecturerDTO = mapper.readValue(request.getInputStream(), LecturerDTO.class);
+		lecturerDTO = lecturerService.insert(lecturerDTO);
+		mapper.writeValue(response.getOutputStream(), lecturerDTO);
 	}
-
+	
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ObjectMapper mapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
-		DepartmentDTO departmentDTO = mapper.readValue(request.getInputStream(), DepartmentDTO.class);
-		departmentDTO = departmentService.update(departmentDTO);
-		mapper.writeValue(response.getOutputStream(), departmentDTO);
-	}
-
-	@Override
-	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		ObjectMapper mapper = new ObjectMapper();
-		request.setCharacterEncoding("UTF8");
-		response.setContentType("application/json");
-		DepartmentDTO departmentDTO = mapper.readValue(request.getInputStream(), DepartmentDTO.class);
-		boolean result = departmentService.delete(departmentDTO.getId());
-		mapper.writeValue(response.getOutputStream(), result);
+		LecturerDTO lecturerDTO = mapper.readValue(request.getInputStream(), LecturerDTO.class);
+		lecturerDTO = lecturerService.update(lecturerDTO);
+		mapper.writeValue(response.getOutputStream(), lecturerDTO);
 	}
 }

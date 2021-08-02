@@ -16,4 +16,6 @@ public interface IUserDAO {
 
 	boolean delete(Long id);
 
+	UserDTO findOneByEmailOrUsernameExcludeId(String email, String username, Long id);
+
 }

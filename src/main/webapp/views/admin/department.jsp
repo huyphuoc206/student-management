@@ -50,7 +50,8 @@
 						<label for="faculty" class="col-sm-2 col-form-label">Khoa</label>
 						<div class="col-sm-6">
 							<select class="custom-select form-control" id="faculty"
-								name="facultyId">
+								name="facultyId" required>
+								<option value="" selected disabled>Chọn khoa</option>
 								<c:forEach var="item" items="${faculties}">
 									<option value="${item.id}">${ item.name }</option>
 								</c:forEach>

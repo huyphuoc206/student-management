@@ -35,7 +35,8 @@ public class StudentService implements IStudentService {
 
 	@Override
 	public StudentDTO update(StudentDTO studentDTO) {
-		UserDTO user = userDAO.findOneByEmail(studentDTO.getUser().getEmail());
+		UserDTO user = userDAO.findOneByEmailOrUsernameExcludeId(studentDTO.getUser().getEmail(),
+				studentDTO.getUser().getUsername(), studentDTO.getUser().getId());
 		if (user == null || user.getId() == studentDTO.getUser().getId()) {
 			if (studentDAO.update(studentDTO))
 				return studentDAO.findOneById(studentDTO.getId());

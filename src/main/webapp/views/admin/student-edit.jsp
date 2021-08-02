@@ -31,16 +31,16 @@
 	<form id="formSubmit">
 		<div class="form-row">
 			<div class="form-group col-md-4">
-				<label for="no">MSSV</label> <input type="text" readonly
-					class="form-control" id="no" value="${ model.user.username }">
+				<label for="username">MSSV</label> <input type="text"
+					class="form-control" id="username" name="username" value="${ model.user.username }" required>
 			</div>
 			<div class="form-group col-md-4">
 				<label for="email">Email</label> <input type="email" class="form-control"
-					id="email" name="email" value="${ model.user.email }">
+					id="email" name="email" value="${ model.user.email }" required>
 			</div>
 			<div class="form-group col-md-4">
 				<label for="fullname">Họ tên</label> <input type="text" class="form-control"
-					id="fullname" name="fullname" value="${ model.user.fullname }">
+					id="fullname" name="fullname" value="${ model.user.fullname }" required>
 			</div>
 		</div>
 		<div class="form-row">
@@ -50,11 +50,11 @@
 			</div>
 			<div class="form-group col-md-4">
 				<label for="dob">Ngày sinh</label> <input type="date"
-					class="form-control" id="dob" name="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.user.dob}" />">
+					class="form-control" id="dob" name="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.user.dob}" />" required>
 			</div>
 			<div class="form-group col-md-4">
 				<label for="gender">Giới tính</label> 
-				<select id="gender" class="form-control" name="gender">
+				<select id="gender" class="custom-select form-control" name="gender">
 					<c:if test="${empty model.user.gender}">
 						<option value="Nam">Nam</option>
 						<option value="Nữ">Nữ</option>
@@ -86,7 +86,7 @@
 			</div>
 			<div class="form-group col-md-6">
 				<label for="classList">Lớp</label> 
-				<select id="classList" class="form-control" name="classId">
+				<select id="classList" class="custom-select form-control" name="classId">
 					<c:forEach var="item" items="${classDTOs}">
 						<c:if test="${item.id == model.classId}">
 							<option value="${item.id}" selected>${item.code}</option>
@@ -105,7 +105,7 @@
 			</div>
 			<div class="form-group col-md-6">
 				<label for="">Trạng thái</label> 
-				<select id="" class="form-control" name="status">
+				<select id="" class="custom-select form-control" name="status">
 					<c:if test="${model.user.status == 1}">
 						<option value="1" selected>Hoạt động</option>
 						<option value="0">Ngưng hoạt động</option>
@@ -139,6 +139,7 @@
 		function loadClassByFaculty(data) {
 		   const classList =  $('#classList')
 		   let options = '';
+		   options += '<option value="" disabled selected>Chọn lớp</option>'
 		   data.forEach(element => {
 			   options += '<option value="' + element.id + '">' + element.code +'</option>'
 		   })
@@ -184,7 +185,6 @@
 			    });
 			    data['user']['id'] = $('#userId').val();
 			    if(data['classId'] == null) data['classId'] = $('#currentClassId').val();
-			    console.log(data)
 				updateStudent(data);
 			}
 		})
@@ -202,14 +202,14 @@
 		            if(result !== null)
 		                window.location.href = "${MainURL}?id="+result.id+"&message=update_success&alert=success";
 		            else
-		                window.location.href = "${MainURL}?id="+data.id+"&message=email_exist&alert=danger";
+		                window.location.href = "${MainURL}?id="+data.id+"&message=username_email_exist&alert=danger";
 		        },
 		        error: function (error) {
 		            $('.load').hide();
 		            window.location.href = "${MainURL}?message=system_error&alert=danger";
 		        }
 		    })
-	}
+		}
 	   
 	</script>
 </body>

@@ -22,7 +22,7 @@ public class ClassAPI extends HttpServlet {
 	@Inject
 	private IClassService classService;
 
-	// get departments by faculty id
+	// get class by faculty id
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
