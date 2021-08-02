@@ -24,6 +24,12 @@ public class StudentAPI extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");
+		StudentDTO studentDTO = mapper.readValue(request.getInputStream(), StudentDTO.class);
+		studentDTO = studentService.insert(studentDTO);
+		mapper.writeValue(response.getOutputStream(), studentDTO);
 	}
 
 	@Override

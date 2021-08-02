@@ -13,4 +13,6 @@ public interface IStudentService {
 	StudentDTO insert(StudentDTO studentDTO);
 
 	StudentDTO update(StudentDTO studentDTO);
+
+	List<StudentDTO> findByClassId(long id);
 }

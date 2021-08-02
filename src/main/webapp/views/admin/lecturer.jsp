@@ -68,8 +68,8 @@
 							<input type="date" class="form-control" id="dob" name="dob" required>
 						</div>
 						<div class="form-group col-md-4">
-							<label for="gender">Giới tính</label> <select id="gender" name="gender"
-								class="form-control">
+							<label for="gender">Giới tính</label> 
+							<select id="gender" name="gender" class="form-control">
 								<option value="Nam">Nam</option>
 								<option value="Nữ">Nữ</option>
 							</select>

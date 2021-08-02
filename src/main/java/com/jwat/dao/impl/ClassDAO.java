@@ -10,32 +10,33 @@ public class ClassDAO extends AbstractDAO<ClassDTO> implements IClassDAO {
 
 	@Override
 	public List<ClassDTO> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT C.*, F.name AS 'faculty' FROM class C JOIN faculty F ON C.faculty_id = F.id";
+		return query(sql, new ClassMapper());
 	}
 
 	@Override
 	public ClassDTO findOneById(long id) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "SELECT C.*, F.name AS 'faculty' FROM class C JOIN faculty F ON C.faculty_id = F.id WHERE C.id = ?";
+		List<ClassDTO> classDTOs = query(sql, new ClassMapper(), id);
+		return classDTOs.isEmpty() ? null : classDTOs.get(0);
 	}
 
 	@Override
 	public Long insert(ClassDTO classDTO) {
-		// TODO Auto-generated method stub
-		return null;
+		String sql = "INSERT INTO class (name, code, school_year, faculty_id) VALUES (?,?,?,?)";
+		return insert(sql, classDTO.getName(), classDTO.getCode(), classDTO.getSchoolYear(), classDTO.getFacultyId());
 	}
 
 	@Override
 	public boolean delete(Long id) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "DELETE FROM class WHERE id = ?";
+		return update(sql, id);
 	}
 
 	@Override
 	public boolean update(ClassDTO classDTO) {
-		// TODO Auto-generated method stub
-		return false;
+		String sql = "UPDATE class SET name = ?, code = ?, school_year = ?, faculty_id = ? WHERE id = ?";
+		return update(sql, classDTO.getName(), classDTO.getCode(), classDTO.getSchoolYear(), classDTO.getFacultyId(), classDTO.getId());
 	}
 
 	@Override

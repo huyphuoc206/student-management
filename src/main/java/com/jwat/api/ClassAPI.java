@@ -29,23 +29,48 @@ public class ClassAPI extends HttpServlet {
 		ObjectMapper mapper = new ObjectMapper();
 		request.setCharacterEncoding("UTF8");
 		response.setContentType("application/json");
-		Long facultyId = Long.parseLong(request.getParameter("facultyId"));
-		List<ClassDTO> classDTOs = classService.findByFacultyId(facultyId);
+		String facultyIdParam = request.getParameter("facultyId");
+		List<ClassDTO> classDTOs = null;
+		if(facultyIdParam != null) {
+			Long facultyId = Long.parseLong(request.getParameter("facultyId"));
+			if (facultyId == -1)
+				classDTOs = classService.findAll();
+			else
+			 classDTOs = classService.findByFacultyId(facultyId);
+		}
 		mapper.writeValue(response.getOutputStream(), classDTOs);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");
+		ClassDTO classDTO = mapper.readValue(request.getInputStream(), ClassDTO.class);
+		classDTO = classService.insert(classDTO);
+		mapper.writeValue(response.getOutputStream(), classDTO);
 	}
 
 	@Override
 	protected void doPut(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");
+		ClassDTO classDTO = mapper.readValue(request.getInputStream(), ClassDTO.class);
+		classDTO = classService.update(classDTO);
+		mapper.writeValue(response.getOutputStream(), classDTO);
 	}
 
 	@Override
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		ObjectMapper mapper = new ObjectMapper();
+		request.setCharacterEncoding("UTF8");
+		response.setContentType("application/json");
+		ClassDTO classDTO = mapper.readValue(request.getInputStream(), ClassDTO.class);
+		boolean result = classService.delete(classDTO.getId());
+		mapper.writeValue(response.getOutputStream(), result);
 	}
 }
