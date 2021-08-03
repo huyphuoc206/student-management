@@ -1,14 +1,14 @@
 package com.jwat.dto;
 
 public class LecturerClassDTO {
-	private LecturerSubjectDTO lecturer_subject;
+	private SubjectAssignDTO lecturer_subject;
 	private ClassDTO classDTO;
 
-	public LecturerSubjectDTO getLecturer_subject() {
+	public SubjectAssignDTO getLecturer_subject() {
 		return lecturer_subject;
 	}
 
-	public void setLecturer_subject(LecturerSubjectDTO lecturer_subject) {
+	public void setLecturer_subject(SubjectAssignDTO lecturer_subject) {
 		this.lecturer_subject = lecturer_subject;
 	}
 

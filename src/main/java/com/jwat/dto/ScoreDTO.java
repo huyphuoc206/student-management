@@ -2,7 +2,7 @@ package com.jwat.dto;
 
 public class ScoreDTO {
 	private StudentDTO student;
-	private LecturerSubjectDTO lecturer_subject;
+	private SubjectAssignDTO lecturer_subject;
 	private float processScore;
 	private float midTermScore;
 	private float endTermScore;
@@ -16,11 +16,11 @@ public class ScoreDTO {
 		this.student = student;
 	}
 
-	public LecturerSubjectDTO getLecturer_subject() {
+	public SubjectAssignDTO getLecturer_subject() {
 		return lecturer_subject;
 	}
 
-	public void setLecturer_subject(LecturerSubjectDTO lecturer_subject) {
+	public void setLecturer_subject(SubjectAssignDTO lecturer_subject) {
 		this.lecturer_subject = lecturer_subject;
 	}
 

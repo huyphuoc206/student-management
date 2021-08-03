@@ -91,4 +91,25 @@ public class LecturerDAO extends AbstractDAO<LecturerDTO> implements ILecturerDA
 				user.getFullname(), user.getEmail(), user.getGender(),
 				user.getPhoneNumber(), user.getDob(), user.getStatus(), user.getId());
 	}
+
+	@Override
+	public List<LecturerDTO> findByDepartmentIdAndStatus(long id, int status) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT U.*, L.id AS 'lecturer_id', L.department_id, D.name AS 'department_name', ");
+		sql.append("L.degree_id, DE.name AS 'degree_name', DE.code AS 'degree_code', D.faculty_id, F.name AS 'faculty_name' ");
+		sql.append("FROM user U, lecturer L, department D, degree DE, faculty F ");
+		sql.append("WHERE U.id = L.user_id AND L.department_id = D.id AND D.faculty_id = F.id AND L.degree_id = DE.id AND L.department_id = ? ANd U.status = ?");
+		return query(sql.toString(), new LecturerMapper(), id, status);
+	}
+
+	@Override
+	public List<LecturerDTO> findBySemesterAndSubject(Long semesterId, Long subjectId) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT U.*, L.id AS 'lecturer_id', L.department_id, D.name AS 'department_name', ");
+		sql.append("L.degree_id, DE.name AS 'degree_name', DE.code AS 'degree_code', D.faculty_id, F.name AS 'faculty_name' ");
+		sql.append("FROM user U, lecturer L, department D, degree DE, faculty F, lecturer_subject LS ");
+		sql.append("WHERE U.id = L.user_id AND L.department_id = D.id AND D.faculty_id = F.id AND L.degree_id = DE.id AND L.id = LS.lecturer_id ");
+		sql.append("AND LS.semester_id = ? AND LS.subject_id = ?");
+		return query(sql.toString(), new LecturerMapper(), semesterId, subjectId);
+	}
 }

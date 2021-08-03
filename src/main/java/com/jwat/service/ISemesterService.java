@@ -1,0 +1,11 @@
+package com.jwat.service;
+
+import java.util.List;
+
+import com.jwat.dto.SemesterDTO;
+
+public interface ISemesterService {
+	
+	List<SemesterDTO> findAll();
+
+}

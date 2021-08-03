@@ -50,7 +50,7 @@
 							class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />" >
 					</div>
 					<div class="form-group col-md-6">
-						<label for="gender">Giới tính</label> <select id="gender" class="form-control" name="gender">
+						<label for="gender">Giới tính</label> <select id="gender" class="custom-select form-control" name="gender">
 							<c:if test="${empty model.gender}">
 								<option value="Nam">Nam</option>
 								<option value="Nữ">Nữ</option>
@@ -76,7 +76,7 @@
 						class="form-control" id="">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="">Giới tính</label> <select id="" class="form-control">
+					<label for="">Giới tính</label> <select id="" class="custom-select form-control">
 						<option value="MALE">Nam</option>
 						<option value="FEMALE">Nữ</option>
 					</select>
@@ -102,7 +102,7 @@
 						class="form-control" id="">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="">Giới tính</label> <select id="" class="form-control">
+					<label for="">Giới tính</label> <select id="" class="custom-select form-control">
 						<option value="MALE">Nam</option>
 						<option value="FEMALE">Nữ</option>
 					</select>
