@@ -5,7 +5,8 @@ public class SubjectDTO {
 	private String name;
 	private String code;
 	private DepartmentDTO department;
-
+	private Long departmentId;
+	
 	public String getName() {
 		return name;
 	}
@@ -37,4 +38,14 @@ public class SubjectDTO {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	public Long getDepartmentId() {
+		return departmentId;
+	}
+
+	public void setDepartmentId(Long departmentId) {
+		this.departmentId = departmentId;
+	}
+	
+	
 }

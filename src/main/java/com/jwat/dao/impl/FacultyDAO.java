@@ -51,4 +51,10 @@ public class FacultyDAO extends AbstractDAO<FacultyDTO> implements IFacultyDAO {
 		}
 		
 	}
+
+	@Override
+	public long count() {
+		String sql = "SELECT COUNT(*) FROM faculty";
+		return count(sql);
+	}
 }

@@ -23,16 +23,9 @@ public class UserDAO extends AbstractDAO<UserDTO> implements IUserDAO {
 	}
 
 	@Override
-	public UserDTO findOneByEmail(String email) {
-		String sql = "SELECT * FROM user WHERE email = ?";
-		List<UserDTO> users = query(sql, new UserMapper(), email);
-		return users.isEmpty() ? null : users.get(0);
-	}
-
-	@Override
 	public boolean update(UserDTO userDTO) {
-		String sql = "UPDATE user SET fullname = ?, email = ?, gender = ?, phone_number = ?, dob = ?  WHERE id = ?";
-		return update(sql, userDTO.getFullname(), userDTO.getEmail(), userDTO.getGender(), userDTO.getPhoneNumber(),
+		String sql = "UPDATE user SET username = ?, fullname = ?, email = ?, gender = ?, phone_number = ?, dob = ?  WHERE id = ?";
+		return update(sql, userDTO.getUsername(), userDTO.getFullname(), userDTO.getEmail(), userDTO.getGender(), userDTO.getPhoneNumber(),
 				userDTO.getDob(), userDTO.getId());
 	}
 
@@ -61,5 +54,11 @@ public class UserDAO extends AbstractDAO<UserDTO> implements IUserDAO {
 			List<UserDTO> users = query(sql, new UserMapper(), email, username, id);
 			return users.isEmpty() ? null : users.get(0);
 		}
+	}
+	
+	@Override
+	public long countByRole(String role) {
+		String sql = "SELECT COUNT(*) FROM user U JOIN role R ON U.role_id = R.id WHERE U.status = 1 AND R.code = ?";
+		return count(sql, role);
 	}
 }

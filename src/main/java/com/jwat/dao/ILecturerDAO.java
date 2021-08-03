@@ -22,4 +22,8 @@ public interface ILecturerDAO {
 	LecturerDTO findOneByUserId(Long id);
 
 	boolean update(LecturerDTO lecturerDTO);
+
+	List<LecturerDTO> findByDepartmentIdAndStatus(long id, int status);
+
+	List<LecturerDTO> findBySemesterAndSubject(Long semesterId, Long subjectId);
 }

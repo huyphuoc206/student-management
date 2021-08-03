@@ -17,4 +17,6 @@ public interface IDepartmentDAO {
 	boolean update(DepartmentDTO departmentDTO);
 
 	List<DepartmentDTO> findByFacultyId(Long facultyId);
+
+	long count();
 }

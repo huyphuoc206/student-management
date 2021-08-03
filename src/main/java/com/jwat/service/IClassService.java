@@ -2,6 +2,7 @@ package com.jwat.service;
 
 import java.util.List;
 
+import com.jwat.dto.ClassAssignDTO;
 import com.jwat.dto.ClassDTO;
 
 public interface IClassService {
@@ -17,4 +18,10 @@ public interface IClassService {
 	ClassDTO update(ClassDTO classDTO);
 
 	List<ClassDTO> findByFacultyId(Long facultyId);
+
+	Long[] findClassAssign(Long subjectAssignId);
+
+	boolean assignClass(ClassAssignDTO classAssignDTO);
+
+	long count();
 }

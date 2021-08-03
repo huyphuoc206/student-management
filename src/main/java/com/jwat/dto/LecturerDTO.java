@@ -7,7 +7,8 @@ public class LecturerDTO {
 	private DepartmentDTO department;
 	private Long degreeId;
 	private Long departmentId;
-
+	private Long subjectAssignId;
+	
 	public UserDTO getUser() {
 		return user;
 	}
@@ -55,6 +56,12 @@ public class LecturerDTO {
 	public void setDegreeId(Long degreeId) {
 		this.degreeId = degreeId;
 	}
-	
-	
+
+	public Long getSubjectAssignId() {
+		return subjectAssignId;
+	}
+
+	public void setSubjectAssignId(Long subjectAssignId) {
+		this.subjectAssignId = subjectAssignId;
+	}
 }

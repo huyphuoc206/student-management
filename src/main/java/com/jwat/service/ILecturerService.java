@@ -11,6 +11,8 @@ public interface ILecturerService {
 
 	List<LecturerDTO> findByDepartmentId(long id);
 	
+	List<LecturerDTO> findByDepartmentIdAndStatus(long id, int status);
+	
 	List<LecturerDTO> findAll();
 	
 	LecturerDTO findOneById(long id);
@@ -20,5 +22,7 @@ public interface ILecturerService {
 	LecturerDTO insert(LecturerDTO lecturerDTO);
 
 	LecturerDTO update(LecturerDTO lecturerDTO);
+
+	List<LecturerDTO> findBySemesterAndSubject(Long semesterId, Long subjectId);
 	
 }

@@ -8,8 +8,6 @@ public interface IUserDAO {
 
 	UserDTO findOneById(Long id);
 
-	UserDTO findOneByEmail(String email);
-	
 	boolean update(UserDTO userDTO);
 
 	boolean changePassword(String newPassword, Long userId);
@@ -17,5 +15,7 @@ public interface IUserDAO {
 	boolean delete(Long id);
 
 	UserDTO findOneByEmailOrUsernameExcludeId(String email, String username, Long id);
+
+	long countByRole(String role);
 
 }

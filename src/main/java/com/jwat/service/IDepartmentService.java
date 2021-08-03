@@ -17,4 +17,6 @@ public interface IDepartmentService {
 	DepartmentDTO update(DepartmentDTO departmentDTO);
 
 	List<DepartmentDTO> findByFacultyId(Long facultyId);
+
+	long count();
 }

@@ -31,12 +31,12 @@ public class ClassAPI extends HttpServlet {
 		response.setContentType("application/json");
 		String facultyIdParam = request.getParameter("facultyId");
 		List<ClassDTO> classDTOs = null;
-		if(facultyIdParam != null) {
-			Long facultyId = Long.parseLong(request.getParameter("facultyId"));
+		if (facultyIdParam != null) {
+			Long facultyId = Long.parseLong(facultyIdParam);
 			if (facultyId == -1)
 				classDTOs = classService.findAll();
 			else
-			 classDTOs = classService.findByFacultyId(facultyId);
+				classDTOs = classService.findByFacultyId(facultyId);
 		}
 		mapper.writeValue(response.getOutputStream(), classDTOs);
 	}

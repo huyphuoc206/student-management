@@ -84,7 +84,7 @@
 				</select>
 			</div>
 			<div class="form-group col-md-4">
-				<label for="inputCity">Khoa</label> 
+				<label for="facultyList">Khoa</label> 
 				<select  id="facultyList" class="custom-select form-control">
 					<c:forEach var="item" items="${faculties}">
 						<c:if test="${item.id == model.department.facultyId}">

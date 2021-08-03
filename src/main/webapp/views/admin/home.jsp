@@ -24,7 +24,7 @@
 							<div
 								class="text-xs font-weight-bold text-primary text-uppercase mb-1">
 								Tổng số lượng khoa</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">50</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ facultyCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-building fa-2x text-gray-300"></i>
@@ -43,7 +43,7 @@
 							<div
 								class="text-xs font-weight-bold text-success text-uppercase mb-1">
 								Tổng số lượng bộ môn</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">100</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ departmentCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-window-maximize fa-2x text-gray-300"></i>
@@ -61,7 +61,7 @@
 							<div
 								class="text-xs font-weight-bold text-info text-uppercase mb-1">
 								Tổng số lượng môn học</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">500</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ subjectCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-book fa-2x text-gray-300"></i>
@@ -79,7 +79,7 @@
 							<div
 								class="text-xs font-weight-bold text-warning text-uppercase mb-1">
 								Tổng số lượng lớp</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">3500</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ classCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-address-book fa-2x text-gray-300"></i>
@@ -96,7 +96,7 @@
 							<div
 								class="text-xs font-weight-bold text-danger text-uppercase mb-1">
 								Tổng số lượng giảng viên</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">180</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ lecturerCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-user fa-2x text-gray-300"></i>
@@ -113,7 +113,7 @@
 							<div
 								class="text-xs font-weight-bold text-secondary text-uppercase mb-1">
 								Tổng số lượng sinh viên</div>
-							<div class="h5 mb-0 font-weight-bold text-gray-800">1800</div>
+							<div class="h5 mb-0 font-weight-bold text-gray-800">${ studentCounter }</div>
 						</div>
 						<div class="col-auto">
 							<i class="fas fa-user-md fa-2x text-gray-300"></i>

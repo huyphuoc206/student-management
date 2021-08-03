@@ -13,4 +13,6 @@ public interface IUserService {
 	boolean changePassword(ChangePasswordDTO dto);
 
 	boolean delete(Long id);
+
+	long countByRole(String role);
 }

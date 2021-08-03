@@ -65,4 +65,10 @@ public class DepartmentDAO extends AbstractDAO<DepartmentDTO> implements IDepart
 		sql.append("WHERE D.faculty_id = ?");
 		return query(sql.toString(), new DepartmentMapper(), facultyId);
 	}
+	
+	@Override
+	public long count() {
+		String sql = "SELECT COUNT(*) FROM department";
+		return count(sql);
+	}
 }

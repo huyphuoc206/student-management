@@ -2,6 +2,7 @@ package com.jwat.dao;
 
 import java.util.List;
 
+import com.jwat.dto.ClassAssignDTO;
 import com.jwat.dto.ClassDTO;
 
 public interface IClassDAO {
@@ -17,4 +18,12 @@ public interface IClassDAO {
 	boolean update(ClassDTO classDTO);
 
 	List<ClassDTO> findByFacultyId(Long facultyId);
+	
+	List<ClassAssignDTO> findClassAssigns(Long subjectAssignId);
+	
+	boolean deleteClassAssign(ClassAssignDTO classAssignDTO);
+
+	void insertClassAssign(ClassAssignDTO dto);
+
+	long count();
 }
