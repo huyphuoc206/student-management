@@ -41,4 +41,9 @@ public class FacultyService implements IFacultyService {
 		return null;
 	}
 
+	@Override
+	public long count() {
+		return facultyDAO.count();
+	}
+
 }

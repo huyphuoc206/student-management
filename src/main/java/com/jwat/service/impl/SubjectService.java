@@ -68,4 +68,9 @@ public class SubjectService implements ISubjectService {
 		return subjectDAO.deleteSubjectAssign(id);
 	}
 
+	@Override
+	public long count() {
+		return subjectDAO.count();
+	}
+
 }

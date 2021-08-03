@@ -98,4 +98,9 @@ public class SubjectDAO extends AbstractDAO<SubjectDTO> implements ISubjectDAO {
 		return update(sql, id);
 	}
 
+	@Override
+	public long count() {
+		String sql = "SELECT COUNT(*) FROM subject";
+		return count(sql);
+	}
 }

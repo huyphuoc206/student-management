@@ -15,4 +15,6 @@ public interface IFacultyService {
 	boolean delete(Long id);
 
 	FacultyDTO update(FacultyDTO facultyDTO);
+
+	long count();
 }

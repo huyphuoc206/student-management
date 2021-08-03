@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-admin-subject-assign" />
+<c:url var="APIurlClass" value="/api-admin-class-assign" />
 <c:url var="MainURL" value="/quan-tri/giao-mon-hoc?subjectId=${ model.id }" />
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@
 <title>JWAt</title>
 </head>
 <body>
-	<div class="row justify-content-between">
+	<div class="row justify-content-between" id="notification">
 		<div>
 			<a href="<c:url value='/quan-tri/mon-hoc'/>"
 				class="btn btn-info btn-icon-split mb-3" id="preLink"> <span
@@ -128,28 +129,13 @@
 					</button>
 				</div>
 				<div class="modal-body">
-					<table class="table table-borderless" width="50%" cellspacing="0">
-						<tr>
-							<td class="text-center"><input type="checkbox" id="a"
-								name="options[]" value="1"> <label class="mb-0 ml-3"
-								for="a">DH18DTA</label></td>
-						</tr>
-						<tr>
-							<td class="text-center"><input type="checkbox" id="b"
-								name="options[]" value="1"> <label class="mb-0 ml-3"
-								for="b">DH18DTB</label></td>
-						</tr>
-						<tr>
-							<td class="text-center"><input type="checkbox" id="c"
-								name="options[]" value="1"> <label class="mb-0 ml-3"
-								for="c">DH18DTC</label></td>
-						</tr>
+					<table class="table table-borderless" width="50%" cellspacing="0" id="classSelected">
 					</table>
 				</div>
 				<div class="modal-footer">
 					<button class="btn btn-secondary" type="button"
 						data-dismiss="modal">Quay lại</button>
-					<button class="btn btn-success" href="login.html">Lưu</button>
+					<button class="btn btn-success" id="saveClass">Lưu</button>
 				</div>
 			</div>
 		</div>
@@ -172,6 +158,7 @@
             </div>
         </div>
     </div>
+    <input type="hidden" value="${model.department.facultyId}" id="facultyId" name="facultyId" />
     <script>
 	    const items = $(".nav-item")
 		for (let element of items) {
@@ -225,7 +212,7 @@
 			   table.clear().draw();
 			   let no = 1;
 			   data.forEach(element => {
-				   let url = '<button class="btn btn-info btn-circle btn-sm" data-toggle="modal" data-target="#showClass" title="Chọn lớp">' +
+				   let url = '<button class="btn btn-info btn-circle btn-sm m-1" data-toggle="modal" data-target="#showClass" title="Chọn lớp" onclick="showClass('+ element.subjectAssignId +')">' +
 				   	'<span class="icon text-white-50 m-1"> <i class="fas fa-plus"></i></span></button>';
 				   url = url + '<button data-toggle="modal" data-target="#removeModal" class="btn btn-danger btn-circle btn-sm m-1" title="Xóa"'
 							+ 'onclick="remove(' + element.subjectAssignId + ')"><i class="fas fa-trash"></i></button>';
@@ -292,6 +279,105 @@
 	            }
 	        })
 	    }
+  	 	
+  	 	let classAssignId = [];
+  	 	function showClass(id) {
+  	 		subjectAssignId = id;
+  	 		classAssignId = [];
+  	 		const facultyId = $('#facultyId').val();
+  	 		getAllClass(facultyId, subjectAssignId);
+  	 	}
+  	  	function getAllClass(facultyId, subjectAssignId) {
+	        $('.load').show();
+	        $.get('/api-admin-class', {facultyId: facultyId}, function (allClass) {
+              if (allClass != null)	
+            	  getClassAssign(allClass, subjectAssignId);
+	        });
+	  	}
+  	  	function getClassAssign(allClass, subjectAssignId) {
+  		  	$.get('/api-admin-class-assign', {subjectAssignId: subjectAssignId}, function (classAssign) {
+  		  		$('.load').hide();
+         	  	loadClassAssign(allClass, classAssign);
+	        });
+  	  	}
+  	  	
+  	  	function loadClassAssign(allClass, classAssign) {
+  	  		const classSelected = $('#classSelected');
+		  	let rows = [];
+		  	if (allClass.length === 0) {
+		  		classSelected.html("Danh sách lớp rỗng");
+		  		return;
+		  	}
+		  	if (classAssign === null) {
+		  		allClass.forEach(element => {
+	  		  		const tr = '<tr><td class="text-center"><input type="checkbox" id="checkbox_'+ element.id +'" name="options[]" value="' + element.id +'">' +
+	  		  					'<label class="mb-0 ml-3" for="checkbox_' + element.id +'">'+ element.code + '</label></td></tr>';
+	  		  		rows.push(tr);
+	  		  	})
+	  		  	
+		  	} else {
+		  		classAssignId = classAssign;
+		  		allClass.forEach(element => {
+		  			let checked = '';
+		  			if(classAssign.includes(element.id)) checked = 'checked'
+	  		  		const tr = '<tr><td class="text-center"><input type="checkbox" id="checkbox_'+ element.id +'" name="options[]" value="' + element.id +'"'+checked+' >' +
+	  		  					'<label class="mb-0 ml-3" for="checkbox_' + element.id +'">'+ element.code + '</label></td></tr>';
+	  		  		rows.push(tr);
+	  		  	})
+		  	}
+		  	classSelected.html(rows.join(""));
+  	  	}
+  	  	
+  	  	$('#saveClass').click(function (e) {
+	        e.preventDefault();
+	        let data = {};
+	        let dataArray = $('#classSelected input[type=checkbox]:checked').map(function () {
+	            return parseInt($(this).val()); 
+	        }).get();
+	        if (dataArray.length != 0) {
+	            data['classIds'] = dataArray;
+	        }
+	        data['subjectAssignId'] = subjectAssignId;
+	        // no change class assign
+	        if(JSON.stringify(dataArray) == JSON.stringify(classAssignId))
+	        	 $('#showClass').modal('hide');
+	        else {
+	        	assignClass(data);
+	        }
+	    })
+	    
+	    function assignClass(data) {
+			$('.load').show();
+			$.ajax({
+				url : '${APIurlClass}',
+				type : 'POST',
+				contentType : 'application/json',
+				data : JSON.stringify(data),
+				dataType : 'json',
+				success : function(result) {
+					$('.load').hide();
+					let notification = '<div><a href="/quan-tri/mon-hoc" class="btn btn-info btn-icon-split mb-3" id="preLink"> <span class="icon text-white-50">' + 
+					'<i class="fa fa-arrow-left"></i></span> <span class="text">Quay lại</span></a></div>'
+					let alert;
+					let message;
+					if (result) {
+						alert = 'success';
+						message = 'Giao lớp thành công';
+					}
+					else {
+						alert = 'danger';
+						message = 'Giao lớp thất bại';
+					}
+					notification += '<div class="alert alert-' + alert + ' text-center small"><span>' + message + '</span> <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>';
+					$("#notification").html(notification)		
+					 $('#showClass').modal('hide');
+				},
+				error : function(error) {
+					$('.load').hide();
+					window.location.href = "${MainURL}&message=system_error&alert=danger";
+				}
+			})
+		}
     </script>
 </body>
 </html>

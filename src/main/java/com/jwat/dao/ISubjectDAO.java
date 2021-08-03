@@ -30,4 +30,6 @@ public interface ISubjectDAO {
 	SubjectAssignDTO findSubjectAssign(SubjectAssignDTO subjectAssignDTO);
 
 	boolean deleteSubjectAssign(Long id);
+
+	long count();
 }

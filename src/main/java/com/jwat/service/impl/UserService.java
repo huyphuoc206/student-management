@@ -29,8 +29,8 @@ public class UserService implements IUserService {
 
 	@Override
 	public UserDTO update(UserDTO userDTO) {
-		UserDTO user = userDAO.findOneByEmail(userDTO.getEmail());
-		if (user == null || user.getId() == userDTO.getId()) {
+		UserDTO user = userDAO.findOneByEmailOrUsernameExcludeId(userDTO.getEmail(), userDTO.getUsername(), userDTO.getId());
+		if (user == null) {
 			if (userDAO.update(userDTO))
 				return userDAO.findOneById(userDTO.getId());
 		}
@@ -51,5 +51,10 @@ public class UserService implements IUserService {
 	@Override
 	public boolean delete(Long id) {
 		return userDAO.delete(id);
+	}
+
+	@Override
+	public long countByRole(String role) {
+		return userDAO.countByRole(role);
 	}
 }

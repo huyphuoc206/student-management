@@ -25,4 +25,6 @@ public interface ISubjectService {
 
 	boolean deleteSubjectAssign(Long id);
 
+	long count();
+
 }

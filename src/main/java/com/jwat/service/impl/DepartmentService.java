@@ -46,4 +46,9 @@ public class DepartmentService implements IDepartmentService {
 		return departmentDAO.findByFacultyId(facultyId);
 	}
 
+	@Override
+	public long count() {
+		return departmentDAO.count();
+	}
+
 }

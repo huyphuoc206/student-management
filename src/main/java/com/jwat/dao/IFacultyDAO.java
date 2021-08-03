@@ -15,4 +15,6 @@ public interface IFacultyDAO {
 	boolean delete(Long id);
 
 	boolean update(FacultyDTO facultyDTO);
+
+	long count();
 }

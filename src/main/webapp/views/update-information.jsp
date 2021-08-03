@@ -24,8 +24,13 @@
 	<form id="formSubmit">
 		<div class="form-row">
 			<div class="form-group col-md-6">
-				<label for="">Tên tài khoản</label> <input type="text" readonly
-					class="form-control" value= "${ model.username }">
+				<label for="">Tên tài khoản</label> 
+				<c:if test="${USER.role.code == 'ADMIN'}"> 
+					<input type="text" class="form-control" value= "${ model.username }" name="username" required>
+				</c:if>
+				<c:if test="${USER.role.code == 'STUDENT' || USER.role.code == 'LECTURER'}"> 
+					<input type="text" readonly class="form-control" value= "${ model.username }" name="username">
+				</c:if>
 			</div>
 			<div class="form-group col-md-6">
 				<label for="email">Email</label> <input type="email" class="form-control"
@@ -132,6 +137,7 @@
 		</div>
 		<input type="hidden" value="${model.id}" id="id" name="id" />
 	</form>
+	<input type="hidden" value="${USER.role.code}" id="role" />
 <script type="text/javascript">
 	const items = $(".nav-item")
 	for (let element of items) {
@@ -167,8 +173,12 @@
 	            $('.load').hide();
 	            if(result !== null)
 	                window.location.href = "${MainURL}?id="+result.id+"&message=update_success&alert=success";
-	            else
-	                window.location.href = "${MainURL}?id="+data.id+"&message=email_exist&alert=danger";
+	            else {
+	            	let message = 'email_exist';
+	            	if($('#role').val() === 'ADMIN') message = 'username_email_exist';
+	            	window.location.href = "${MainURL}?id="+data.id+"&message="+message+"&alert=danger";
+	            }
+	                
 	        },
 	        error: function (error) {
 	            $('.load').hide();
