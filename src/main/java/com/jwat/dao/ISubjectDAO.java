@@ -32,4 +32,6 @@ public interface ISubjectDAO {
 	boolean deleteSubjectAssign(Long id);
 
 	long count();
+
+	List<SubjectAssignDTO> findSubjectAssignBySemesterAndLecturer(Long semesterId, Long lecturerId);
 }

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-user" />
-<c:url var="MainURL" value="/quan-tri/thong-tin-ca-nhan" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,26 +49,26 @@
 		</div>
 		<c:if test="${USER.role.code == 'ADMIN'}"> 
 			<div class="form-row">
-					<div class="form-group col-md-6">
-						<label for="dob">Ngày sinh</label> <input type="date"
-							class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />" >
-					</div>
-					<div class="form-group col-md-6">
-						<label for="gender">Giới tính</label> <select id="gender" class="custom-select form-control" name="gender">
-							<c:if test="${empty model.gender}">
-								<option value="Nam">Nam</option>
-								<option value="Nữ">Nữ</option>
-							</c:if>
-							<c:if test="${model.gender == 'Nam'}">
-								<option value="Nam" selected>Nam</option>
-								<option value="Nữ">Nữ</option>
-							</c:if>
-							<c:if test="${model.gender == 'Nữ'}">
-								<option value="Nam">Nam</option>
-								<option value="Nữ" selected>Nữ</option>
-							</c:if>
-						</select>
-					</div>
+				<div class="form-group col-md-6">
+					<label for="dob">Ngày sinh</label> <input type="date"
+						class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />" >
+				</div>
+				<div class="form-group col-md-6">
+					<label for="gender">Giới tính</label> <select id="gender" class="custom-select form-control" name="gender">
+						<c:if test="${empty model.gender}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nam'}">
+							<option value="Nam" selected>Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nữ'}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ" selected>Nữ</option>
+						</c:if>
+					</select>
+				</div>
 			</div>
 		</c:if>
 		
@@ -78,12 +77,22 @@
 			<div class="form-row">
 				<div class="form-group col-md-6">
 					<label for="">Ngày sinh</label> <input type="date"
-						class="form-control" id="">
+						class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="">Giới tính</label> <select id="" class="custom-select form-control">
-						<option value="MALE">Nam</option>
-						<option value="FEMALE">Nữ</option>
+					<label for="gender">Giới tính</label> <select id="gender" class="custom-select form-control" name="gender">
+						<c:if test="${empty model.gender}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nam'}">
+							<option value="Nam" selected>Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nữ'}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ" selected>Nữ</option>
+						</c:if>
 					</select>
 				</div>
 			</div>
@@ -103,28 +112,38 @@
 		<c:if test="${USER.role.code == 'LECTURER'}">
 			<div class="form-row">
 				<div class="form-group col-md-4">
-					<label for="">Ngày sinh</label> <input type="date"
-						class="form-control" id="">
+					<label for="">Ngày sinh</label> 
+					<input type="date" class="form-control" name="dob" id="dob" value="<fmt:formatDate pattern = "yyyy-MM-dd" value = "${model.dob}" />">
 				</div>
 				<div class="form-group col-md-4">
-					<label for="">Giới tính</label> <select id="" class="custom-select form-control">
-						<option value="MALE">Nam</option>
-						<option value="FEMALE">Nữ</option>
+					<label for="gender">Giới tính</label> <select id="gender" class="custom-select form-control" name="gender">
+						<c:if test="${empty model.gender}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nam'}">
+							<option value="Nam" selected>Nam</option>
+							<option value="Nữ">Nữ</option>
+						</c:if>
+						<c:if test="${model.gender == 'Nữ'}">
+							<option value="Nam">Nam</option>
+							<option value="Nữ" selected>Nữ</option>
+						</c:if>
 					</select>
 				</div>
 				<div class="form-group col-md-4">
-					<label for="inputCity">Học vị</label> <input type="text" readonly
-						class="form-control" id="inputEmail4" value="Tiến sĩ">
+					<label for="degree">Học vị</label> <input type="text" readonly
+						class="form-control" id="degree" value="${ lecturer.degree.name }">
 				</div>
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputCity">Khoa</label> <input type="text" readonly
-						class="form-control" id="inputEmail4" value="Công nghệ thông tin">
+					<label for="faculty">Khoa</label> <input type="text" readonly
+						class="form-control" id="faculty" value="${ lecturer.department.facultyName }">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="">Bộ môn</label> <input type="text" readonly
-						class="form-control" id="inputEmail4" value="Công nghệ phần mềm">
+					<label for="department">Bộ môn</label> <input type="text" readonly
+						class="form-control" id="department" value="${ lecturer.department.name }">
 				</div>
 			</div>
 		</c:if>
@@ -171,18 +190,35 @@
 	        dataType: 'json',
 	        success: function (result) {
 	            $('.load').hide();
-	            if(result !== null)
-	                window.location.href = "${MainURL}?id="+result.id+"&message=update_success&alert=success";
+	            const role = $('#role').val();
+	            let url = '';
+	            if(role === 'ADMIN')
+	            	url = '/quan-tri/thong-tin-ca-nhan'
+            	else if (role === 'LECTURER')
+            		url = '/giang-vien'
+           		else if (role === 'STUDENT')
+           			url = '/sinh-vien'
+	            		
+	            if(result !== null) {
+	            	 window.location.href = url+"?message=update_success&alert=success";
+	            }
+	               
 	            else {
 	            	let message = 'email_exist';
-	            	if($('#role').val() === 'ADMIN') message = 'username_email_exist';
-	            	window.location.href = "${MainURL}?id="+data.id+"&message="+message+"&alert=danger";
+	            	if( role === 'ADMIN') message = 'username_email_exist';
+	            	window.location.href = url+"?message="+message+"&alert=danger";
 	            }
-	                
 	        },
 	        error: function (error) {
 	            $('.load').hide();
-	            window.location.href = "${MainURL}?message=system_error&alert=danger";
+	            let url = '';
+	            if(role === 'ADMIN')
+	            	url = '/quan-tri/thong-tin-ca-nhan'
+            	else if (role === 'LECTURER')
+            		url = '/giang-vien'
+           		else if (role === 'STUDENT')
+           			url = '/sinh-vien'
+	            window.location.href = url+"?message=system_error&alert=danger";
 	        }
 	    })
 	}

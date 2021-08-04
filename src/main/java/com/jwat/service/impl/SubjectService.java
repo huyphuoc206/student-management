@@ -73,4 +73,14 @@ public class SubjectService implements ISubjectService {
 		return subjectDAO.count();
 	}
 
+	@Override
+	public List<SubjectAssignDTO> findSubjectAssignBySemesterAndLecturer(Long semesterId, Long lecturerId) {
+		return subjectDAO.findSubjectAssignBySemesterAndLecturer(semesterId, lecturerId);
+	}
+
+	@Override
+	public SubjectAssignDTO findSubjectAssignById(long id) {
+		return subjectDAO.findSubjectAssignById(id);
+	}
+
 }

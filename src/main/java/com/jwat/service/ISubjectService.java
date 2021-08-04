@@ -27,4 +27,8 @@ public interface ISubjectService {
 
 	long count();
 
+	List<SubjectAssignDTO> findSubjectAssignBySemesterAndLecturer(Long semesterId, Long lecturerId);
+	
+	SubjectAssignDTO findSubjectAssignById(long id);
+
 }

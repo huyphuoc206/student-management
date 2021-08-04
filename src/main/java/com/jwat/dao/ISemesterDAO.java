@@ -8,4 +8,6 @@ public interface ISemesterDAO {
 
 	List<SemesterDTO> findAll();
 
+	List<SemesterDTO> getSemestersAssignLecturer(Long id);
+
 }

@@ -70,4 +70,10 @@ public class ClassDAO extends AbstractDAO<ClassDTO> implements IClassDAO {
 		String sql = "SELECT COUNT(*) FROM class";
 		return count(sql);
 	}
+
+	@Override
+	public List<ClassDTO> findBySubjectAssign(Long subjectAssignId) {
+		String sql = "SELECT C.* FROM class C JOIN lecturer_class LC ON C.id = LC.class_id WHERE LC.lecturer_subject_id = ?";
+		return query(sql, new ClassMapper(), subjectAssignId);
+	}
 }

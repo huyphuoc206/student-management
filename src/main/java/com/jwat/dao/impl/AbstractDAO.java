@@ -136,6 +136,8 @@ public class AbstractDAO<T> implements IGenericDAO<T> {
 					statement.setFloat(index, (Float) parameter);
 				else if (parameter instanceof Timestamp)
 					statement.setTimestamp(index, (Timestamp) parameter);
+				else if(parameter == null)
+					statement.setObject(index, parameter);
 			}
 		} catch (SQLException throwables) {
 			throwables.printStackTrace();

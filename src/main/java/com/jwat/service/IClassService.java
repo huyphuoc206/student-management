@@ -24,4 +24,6 @@ public interface IClassService {
 	boolean assignClass(ClassAssignDTO classAssignDTO);
 
 	long count();
+
+	List<ClassDTO> findBySubjectAssign(Long subjectAssignId);
 }

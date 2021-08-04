@@ -5,6 +5,8 @@ public class SubjectAssignDTO {
 	private Long lecturerId;
 	private Long subjectId;
 	private Long semesterId;
+	private SubjectDTO subject;
+	private SemesterDTO semester;
 
 	public void setId(Long id) {
 		this.id = id;
@@ -37,6 +39,21 @@ public class SubjectAssignDTO {
 	public void setSemesterId(Long semesterId) {
 		this.semesterId = semesterId;
 	}
-	
-	
+
+	public SubjectDTO getSubject() {
+		return subject;
+	}
+
+	public void setSubject(SubjectDTO subjectDTO) {
+		this.subject = subjectDTO;
+	}
+
+	public SemesterDTO getSemester() {
+		return semester;
+	}
+
+	public void setSemester(SemesterDTO semester) {
+		this.semester = semester;
+	}
+
 }

@@ -78,9 +78,15 @@ public class ClassService implements IClassService {
 		return true;
 	}
 
+	
 	@Override
 	public long count() {
 		return classDAO.count();
+	}
+
+	@Override
+	public List<ClassDTO> findBySubjectAssign(Long subjectAssignId) {
+		return classDAO.findBySubjectAssign(subjectAssignId);
 	}
 
 }
