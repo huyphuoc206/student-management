@@ -80,8 +80,11 @@ public class SubjectDAO extends AbstractDAO<SubjectDTO> implements ISubjectDAO {
 
 	@Override
 	public SubjectAssignDTO findSubjectAssignById(Long id) {
-		String sql = "SELECT * FROM lecturer_subject WHERE id = ?";
-		List<SubjectAssignDTO> subjectAssigns = query(sql, new SubjectAssignMapper(), id);
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT LS.*, S.name AS 'subject_name', S.code AS 'subject_code', SE.name AS 'semester_name' "); 
+		sql.append("FROM lecturer_subject LS JOIN subject S ON LS.subject_id = S.id JOIN semester SE ON LS.semester_id = SE.id ");
+		sql.append("WHERE LS.id = ?");
+		List<SubjectAssignDTO> subjectAssigns = query(sql.toString(), new SubjectAssignMapper(), id);
 		return subjectAssigns.isEmpty() ? null : subjectAssigns.get(0);
 	}
 
@@ -102,5 +105,14 @@ public class SubjectDAO extends AbstractDAO<SubjectDTO> implements ISubjectDAO {
 	public long count() {
 		String sql = "SELECT COUNT(*) FROM subject";
 		return count(sql);
+	}
+
+	@Override
+	public List<SubjectAssignDTO> findSubjectAssignBySemesterAndLecturer(Long semesterId, Long lecturerId) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT LS.*, S.name AS 'subject_name', S.code AS 'subject_code' ");
+		sql.append("FROM subject S JOIN lecturer_subject LS ON S.id = LS.subject_id ");
+		sql.append("WHERE LS.semester_id = ? AND LS.lecturer_id = ?");
+		return query(sql.toString(), new SubjectAssignMapper(), semesterId, lecturerId);
 	}
 }

@@ -8,7 +8,7 @@
 	<c:if test="${USER.role.code == 'STUDENT'}">
 		<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="index.html">
+		href="<c:url value='/sinh-vien'/>">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-laugh-wink"></i>
 		</div>
@@ -19,7 +19,7 @@
 	<c:if test="${USER.role.code == 'LECTURER'}">
 		<a
 		class="sidebar-brand d-flex align-items-center justify-content-center"
-		href="index.html">
+		href="<c:url value='/giang-vien'/>">
 		<div class="sidebar-brand-icon rotate-n-15">
 			<i class="fas fa-laugh-wink"></i>
 		</div>
@@ -43,10 +43,10 @@
 	<!-- Student -->
 	<c:if test="${USER.role.code == 'STUDENT'}">
 		<li class="nav-item"><a class="nav-link"
-			href="update-information.html"> <i class="fas fa-fw fa-info"></i>
+			href=""<c:url value='/sinh-vien'/>"> <i class="fas fa-fw fa-info"></i>
 				<span>Thông tin cá nhân</span></a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="change-password.html"> <i class="fas fa-fw fa-key"></i> <span>Đổi
+			href="<c:url value='/sinh-vien/doi-mat-khau'/>"> <i class="fas fa-fw fa-key"></i> <span>Đổi
 					mật khẩu</span></a></li>
 		<li class="nav-item"><a class="nav-link"
 			href="student-score.html"> <i class="fas fa-fw fa-book"></i> <span>Xem
@@ -56,12 +56,12 @@
 	<!-- Lecturer -->
 	<c:if test="${USER.role.code == 'LECTURER'}">
 		<li class="nav-item"><a class="nav-link"
-			href="update-information.html"> <i class="fas fa-fw fa-info"></i>
+			href="<c:url value='/giang-vien'/>"> <i class="fas fa-fw fa-info"></i>
 				<span>Thông tin cá nhân</span></a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="change-password.html"> <i class="fas fa-fw fa-key"></i> <span>Đổi mật khẩu</span></a></li>
+			href="<c:url value='/giang-vien/doi-mat-khau'/>"> <i class="fas fa-fw fa-key"></i> <span>Đổi mật khẩu</span></a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="lecturer-subject.html"> <i class="fas fa-fw fa-book"></i> <span>Danh sách môn học</span></a></li>
+			href="<c:url value='/giang-vien/danh-sach-mon-hoc'/>"> <i class="fas fa-fw fa-book"></i> <span>Danh sách môn học</span></a></li>
 	</c:if>
 
 	<!-- Admin -->

@@ -16,6 +16,8 @@ public interface ILecturerService {
 	List<LecturerDTO> findAll();
 	
 	LecturerDTO findOneById(long id);
+	
+	LecturerDTO findOneByUserId(long userId);
 
 	List<DegreeDTO> findAllDegrees();
 

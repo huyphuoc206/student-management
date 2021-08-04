@@ -26,4 +26,6 @@ public interface IClassDAO {
 	void insertClassAssign(ClassAssignDTO dto);
 
 	long count();
+
+	List<ClassDTO> findBySubjectAssign(Long subjectAssignId);
 }

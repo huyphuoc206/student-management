@@ -5,6 +5,7 @@ import java.sql.SQLException;
 
 import com.jwat.dto.DepartmentDTO;
 import com.jwat.dto.SubjectDTO;
+import com.jwat.utils.MapperUtil;
 
 public class SubjectMapper implements IRowMapper<SubjectDTO> {
 
@@ -18,9 +19,15 @@ public class SubjectMapper implements IRowMapper<SubjectDTO> {
 			subjectDTO.setDepartmentId(resultSet.getLong("department_id"));
 			DepartmentDTO department = new DepartmentDTO();
 			department.setId(resultSet.getLong("department_id"));
-			department.setName(resultSet.getString("department_name"));
-			department.setFacultyId(resultSet.getLong("faculty_id"));
-			department.setFacultyName(resultSet.getString("faculty_name"));
+			if(MapperUtil.hasColumn(resultSet, "department_name")) {
+				department.setName(resultSet.getString("department_name"));
+			}
+			if(MapperUtil.hasColumn(resultSet, "faculty_id")) { 
+				department.setFacultyId(resultSet.getLong("faculty_id"));
+			}
+			if(MapperUtil.hasColumn(resultSet, "faculty_name")) { 
+				department.setFacultyName(resultSet.getString("faculty_name"));
+			}
 			subjectDTO.setDepartment(department);
 			return subjectDTO;
 		} catch (SQLException throwables) {

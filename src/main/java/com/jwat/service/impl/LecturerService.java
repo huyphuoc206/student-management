@@ -93,4 +93,9 @@ public class LecturerService implements ILecturerService {
 		});
 		return lecturers;
 	}
+
+	@Override
+	public LecturerDTO findOneByUserId(long userId) {
+		return lecturerDao.findOneByUserId(userId);
+	}
 }

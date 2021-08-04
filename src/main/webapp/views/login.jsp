@@ -42,7 +42,7 @@
 												id="username" name="username" required
 												oninvalid="this.setCustomValidity('Hãy nhập tên đăng nhập!')"
 												oninput="this.setCustomValidity('')" autofocus
-												placeholder="Tên tài khoản" value="admin">
+												placeholder="Tên tài khoản" value="vttuan">
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control form-control-user"

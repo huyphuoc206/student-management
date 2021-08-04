@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@ include file="/common/taglib.jsp"%>
 <c:url var="APIurl" value="/api-user" />
-<c:url var="MainURL" value="/quan-tri/doi-mat-khau" />
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,6 +54,7 @@
 		</div>
 		<input type="hidden" value="${USER.id}" id="userId" name="userId" />
 	</form>
+	<input type="hidden" value="${USER.role.code}" id="role" />
 	<script type="text/javascript">
 		const items = $(".nav-item")
 		for (let element of items) {
@@ -101,14 +101,30 @@
 		        dataType: 'json',
 		        success: function (result) {
 		            $('.load').hide();
+		            const role = $('#role').val();
+		            let url = '';
+		            if(role === 'ADMIN')
+		            	url = '/quan-tri/doi-mat-khau'
+	            	else if (role === 'LECTURER')
+	            		url = '/giang-vien/doi-mat-khau'
+	           		else if (role === 'STUDENT')
+	           			url = '/sinh-vien/doi-mat-khau'
 		            if(result)
-		                window.location.href = "${MainURL}?id="+result.id+"&message=change_password_sucess&alert=success";
+		                window.location.href = url+"?message=change_password_sucess&alert=success";
 		            else
-		                window.location.href = "${MainURL}?id="+data.id+"&message=current_password_wrong&alert=danger";
+		                window.location.href = url+"?message=current_password_wrong&alert=danger";
 		        },
 		        error: function (error) {
 		            $('.load').hide();
-		            window.location.href = "${MainURL}?message=system_error&alert=danger";
+		            const role = $('#role').val();
+		            let url = '';
+		            if(role === 'ADMIN')
+		            	url = '/quan-tri/doi-mat-khau'
+	            	else if (role === 'LECTURER')
+	            		url = '/giang-vien/doi-mat-khau'
+	           		else if (role === 'STUDENT')
+	           			url = '/sinh-vien/doi-mat-khau'
+		            window.location.href = url+"?message=system_error&alert=danger";
 		        }
 		    })
 		}
