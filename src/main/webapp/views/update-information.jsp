@@ -98,12 +98,12 @@
 			</div>
 			<div class="form-row">
 				<div class="form-group col-md-6">
-					<label for="inputCity">Khoa</label> <input type="text" readonly
-						class="form-control" id="inputEmail4" value="Công nghệ thông tin">
+					<label for="facultyStu">Khoa</label> <input type="text" readonly
+						class="form-control" id="facultyStu" value="${ student.classDTO.facultyName }">
 				</div>
 				<div class="form-group col-md-6">
-					<label for="">Lớp</label> <input type="text" readonly
-						class="form-control" id="inputEmail4" value="DH18DTB">
+					<label for="classDTO">Lớp</label> <input type="text" readonly
+						class="form-control" id="classDTO" value="${ student.classDTO.name }">
 				</div>
 			</div>
 		</c:if>

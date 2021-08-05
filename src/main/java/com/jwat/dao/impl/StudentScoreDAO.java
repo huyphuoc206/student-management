@@ -30,4 +30,14 @@ public class StudentScoreDAO extends AbstractDAO<StudentScoreDTO> implements ISt
 		insert(sql, e.getStudentId(), e.getSubjectAssignId(), e.getProcessScore(), e.getMidTermScore(), e.getEndTermScore());
 	}
 
+	@Override
+	public List<StudentScoreDTO> findScoreDashboard(Long semesterId, Long studentId, Long classId) {
+		StringBuilder sql = new StringBuilder();
+		sql.append("SELECT SU.name AS 'subject_name', S.process_score, S.midterm_score, S.endterm_score ");
+		sql.append("FROM lecturer_class LC JOIN lecturer_subject LS ON LC.lecturer_subject_id = LS.id JOIN subject SU ON LS.subject_id = SU.id ");
+		sql.append("LEFT JOIN (SELECT * FROM score WHERE student_id = ?) S ON LS.id = S.lecturer_subject_id ");
+		sql.append("WHERE LC.class_id = ? AND LS.semester_id = ?");
+		return query(sql.toString(), new StudentScoreMapper(), studentId , classId, semesterId );
+	}
+
 }

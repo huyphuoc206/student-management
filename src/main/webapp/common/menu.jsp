@@ -43,14 +43,12 @@
 	<!-- Student -->
 	<c:if test="${USER.role.code == 'STUDENT'}">
 		<li class="nav-item"><a class="nav-link"
-			href=""<c:url value='/sinh-vien'/>"> <i class="fas fa-fw fa-info"></i>
+			href="<c:url value='/sinh-vien'/>"> <i class="fas fa-fw fa-info"></i>
 				<span>Thông tin cá nhân</span></a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="<c:url value='/sinh-vien/doi-mat-khau'/>"> <i class="fas fa-fw fa-key"></i> <span>Đổi
-					mật khẩu</span></a></li>
+			href="<c:url value='/sinh-vien/doi-mat-khau'/>"> <i class="fas fa-fw fa-key"></i> <span>Đổi mật khẩu</span></a></li>
 		<li class="nav-item"><a class="nav-link"
-			href="student-score.html"> <i class="fas fa-fw fa-book"></i> <span>Xem
-					điểm</span></a></li>
+			href="<c:url value='/sinh-vien/xem-diem'/>"> <i class="fas fa-fw fa-book"></i> <span>Xem điểm</span></a></li>
 	</c:if>
 
 	<!-- Lecturer -->

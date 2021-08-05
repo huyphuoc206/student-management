@@ -59,4 +59,9 @@ public class StudentService implements IStudentService {
 	public List<StudentDTO> findByClassId(long id) {
 		return studentDAO.findByClassIdAndStatus(id, 1);
 	}
+
+	@Override
+	public StudentDTO findOneByUserId(Long id) {
+		return studentDAO.findOneByUserId(id);
+	}
 }
