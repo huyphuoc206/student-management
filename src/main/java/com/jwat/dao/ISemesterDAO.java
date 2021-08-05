@@ -10,4 +10,6 @@ public interface ISemesterDAO {
 
 	List<SemesterDTO> getSemestersAssignLecturer(Long id);
 
+	List<SemesterDTO> findByClass(Long classId);
+
 }

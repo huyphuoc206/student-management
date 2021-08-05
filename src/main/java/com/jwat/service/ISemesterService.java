@@ -9,5 +9,7 @@ public interface ISemesterService {
 	List<SemesterDTO> findAll();
 
 	List<SemesterDTO> getSemestersAssignLecturer(Long id);
+	
+	List<SemesterDTO> findByClass(Long classId);
 
 }

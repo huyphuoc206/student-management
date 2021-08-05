@@ -42,13 +42,13 @@
 												id="username" name="username" required
 												oninvalid="this.setCustomValidity('Hãy nhập tên đăng nhập!')"
 												oninput="this.setCustomValidity('')" autofocus
-												placeholder="Tên tài khoản" value="vttuan">
+												placeholder="Tên tài khoản">
 										</div>
 										<div class="form-group">
 											<input type="password" class="form-control form-control-user"
 												id="password" name="password" required
 												oninvalid="this.setCustomValidity('Hãy nhập mật khẩu!')"
-												oninput="this.setCustomValidity('')" placeholder="Mật khẩu" value="123456">
+												oninput="this.setCustomValidity('')" placeholder="Mật khẩu">
 										</div>
 										<div class="form-group">
 											<div class="custom-control custom-checkbox small">

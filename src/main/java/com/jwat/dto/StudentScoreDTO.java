@@ -5,14 +5,15 @@ import java.util.List;
 public class StudentScoreDTO {
 	private Long studentId;
 	private String username;
-	private String fullname; 
+	private String fullname;
 	private Long subjectAssignId;
+	private String subjectName;
 	private Float processScore;
 	private Float midTermScore;
 	private Float endTermScore;
 	private Float finalScore;
 	private List<StudentScoreDTO> studentScores;
-	
+
 	public Float getProcessScore() {
 		return processScore;
 	}
@@ -85,11 +86,11 @@ public class StudentScoreDTO {
 		this.studentScores = studentScores;
 	}
 
-	@Override
-	public String toString() {
-		return "StudentScoreDTO [studentId=" + studentId + ", username=" + username + ", fullname=" + fullname
-				+ ", subjectAssignId=" + subjectAssignId + ", processScore=" + processScore + ", midTermScore="
-				+ midTermScore + ", endTermScore=" + endTermScore + ", finalScore=" + finalScore + "]";
+	public String getSubjectName() {
+		return subjectName;
 	}
-	
+
+	public void setSubjectName(String subjectName) {
+		this.subjectName = subjectName;
+	}
 }

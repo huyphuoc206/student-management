@@ -15,4 +15,6 @@ public interface IStudentService {
 	StudentDTO update(StudentDTO studentDTO);
 
 	List<StudentDTO> findByClassId(long id);
+
+	StudentDTO findOneByUserId(Long id);
 }

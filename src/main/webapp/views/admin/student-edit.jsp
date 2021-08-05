@@ -210,6 +210,11 @@
 	 	else {
 	 		$("#collapseTwo")[0].classList.add("show")
 			$("#collapseTwo .collapse-item")[1].classList.add("active")
+			const items = $(".nav-item")
+			for (let element of items) {
+				if(element.innerHTML.includes('Quản lý người dùng'))
+					element.classList.add("active")
+			}
 	 	}
 		
 		$('#facultyList').on('change', function() {

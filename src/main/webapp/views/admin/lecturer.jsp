@@ -239,6 +239,11 @@
      		const day = ("0" + date.getDate()).slice(-2);
      		return day + '-' + month + '-' + year;
      	}
+     	const items = $(".nav-item")
+		for (let element of items) {
+			if(element.innerHTML.includes('Quản lý người dùng'))
+				element.classList.add("active")
+		}
 		$("#collapseTwo")[0].classList.add("show")
 		$("#collapseTwo .collapse-item")[0].classList.add("active")
 		

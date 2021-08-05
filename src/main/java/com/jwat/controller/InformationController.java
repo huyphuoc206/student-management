@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.jwat.constant.SystemConstant;
 import com.jwat.dto.LecturerDTO;
+import com.jwat.dto.StudentDTO;
 import com.jwat.dto.UserDTO;
 import com.jwat.service.ILecturerService;
 import com.jwat.service.IStudentService;
@@ -42,7 +43,8 @@ public class InformationController extends HttpServlet {
 			LecturerDTO lecturer = lecturerService.findOneByUserId(userDTO.getId());
 			request.setAttribute("lecturer", lecturer);
 		} else if(role.equals(SystemConstant.STUDENT)) {
-			
+			StudentDTO student = studentService.findOneByUserId(userDTO.getId());
+			request.setAttribute("student", student);
 		}
 		RequestDispatcher rd = request.getRequestDispatcher("/views/update-information.jsp");
 		rd.forward(request, response);

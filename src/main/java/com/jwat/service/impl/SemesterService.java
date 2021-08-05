@@ -22,4 +22,9 @@ public class SemesterService implements ISemesterService {
 	public List<SemesterDTO> getSemestersAssignLecturer(Long id) {
 		return semesterDAO.getSemestersAssignLecturer(id);
 	}
+
+	@Override
+	public List<SemesterDTO> findByClass(Long classId) {
+		return semesterDAO.findByClass(classId);
+	}
 }

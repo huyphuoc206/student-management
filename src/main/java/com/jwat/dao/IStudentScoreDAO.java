@@ -12,4 +12,6 @@ public interface IStudentScoreDAO {
 
 	void insert(StudentScoreDTO e);
 
+	List<StudentScoreDTO> findScoreDashboard(Long semesterId, Long studentId, Long classId);
+
 }

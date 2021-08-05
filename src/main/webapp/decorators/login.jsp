@@ -24,7 +24,7 @@
 	<link href="<c:url value='/assets/css/sb-admin-2.min.css'/>" rel="stylesheet">
 	<link href="<c:url value='/assets/css/style.css'/>" rel="stylesheet">
 </head>
-<body class="bg-login">
+<body class="bg-login d-flex align-items-center">
 	<dec:body/>
 	
 <!-- Bootstrap core JavaScript-->

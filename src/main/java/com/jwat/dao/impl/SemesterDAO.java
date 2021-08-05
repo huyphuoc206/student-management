@@ -20,4 +20,9 @@ public class SemesterDAO extends AbstractDAO<SemesterDTO> implements ISemesterDA
 		return query(sql, new SemesterMapper(), id);
 	}
 
+	@Override
+	public List<SemesterDTO> findByClass(Long classId) {
+		String sql = "SELECT DISTINCT(S.id), S.name, S.code FROM semester S JOIN lecturer_subject LS ON S.id = LS.semester_id JOIN lecturer_class LC ON LS.id = LC.lecturer_subject_id WHERE LC.class_id = ?";
+		return query(sql, new SemesterMapper(), classId);
+	}
 }
